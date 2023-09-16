@@ -85,7 +85,7 @@ class Calendary extends React.Component {
             </button>
           </div>
           <Months
-            name={this.state.mes}
+            numMonth={this.state.mes}
             year={this.state.año}
             firstDay={this.startDay()}
           />

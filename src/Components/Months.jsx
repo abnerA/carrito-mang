@@ -48,7 +48,7 @@ class Months extends React.Component {
         return array29;
       }
     }
-    const dias = this.getTotalDays(this.props.name);
+    const dias = this.getTotalDays(this.props.numMonth);
     const result = totalDias(dias);
     return (
       <div className={style.container}>
@@ -61,7 +61,7 @@ class Months extends React.Component {
           <div className={style.daysWeek}>Sáb</div>
           <div className={style.daysWeek}>Dom</div>
         </div>
-        <Days dias={result.length} firstDay={this.props.firstDay}/>
+        <Days dias={result.length} firstDay={this.props.firstDay} key={result.length}/>
       </div>
     );
   }

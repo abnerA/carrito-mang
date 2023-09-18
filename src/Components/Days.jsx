@@ -9,7 +9,7 @@ function Days(props) {
 
   // Para saber la cantidad total de días que tienes el mes, en el primer Render.
   useEffect(() => {
-    const days = props.dias;
+    const days = props.totalDays;
     if (days === 28) {
       setDia29({
         dia29: "none",
@@ -32,7 +32,7 @@ function Days(props) {
         dia31: "none",
       });
     }
-  }, [props.dias]);
+  }, [props.totalDays]);
 
   return (
     <Day 

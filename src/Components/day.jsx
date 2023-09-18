@@ -4,7 +4,7 @@ import style from "./day.module.css";
 class Day extends React.Component {
     // constructor(props) {
     //     super(props);
-    //     console.log(this.props.day31);
+    //     console.log(this.props);
     // }
   render() {
     return (

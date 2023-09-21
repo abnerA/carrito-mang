@@ -10,7 +10,7 @@
 .container {
     background-color: rgb(90, 153, 221);
     width: 600px;
-    height: 250px;
+    height: auto;
     display: flex;
     justify-content: space-between;
     flex-direction: column;

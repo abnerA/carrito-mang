@@ -2,7 +2,7 @@
 /* eslint-disable no-mixed-operators */
 import React from "react";
 import style from "./Months.module.css";
-import Days from "./Days";
+import Week from "./Week";
 
 class Months extends React.Component {
   constructor(props) {
@@ -53,7 +53,7 @@ class Months extends React.Component {
           <div className={style.daysWeek}>Sáb</div>
           <div className={style.daysWeek}>Dom</div>
         </div>
-        <Days totalDays={dias} firstDay={this.props.firstDay} key={dias} />
+        <Week totalDays={dias} firstDay={this.props.firstDay} key={dias} currentDay={this.props.currentDay} />
       </div>
     );
   }

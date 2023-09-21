@@ -1,9 +1,20 @@
-.containerDays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
+.dayNum {
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    display: inline;
+    text-align: center;
+    float: right;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 300ms;
 }
 
-li {
-    text-align: center;
-    list-style: none;
+.dayNum:hover {
+    opacity: 0.8;
+    transition: 300ms;
+    margin-top: -1px;
+    background-color: red !important;
 }

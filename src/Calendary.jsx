@@ -88,6 +88,7 @@ class Calendary extends React.Component {
             numMonth={this.state.mes}
             year={this.state.año}
             firstDay={this.startDay()}
+            currentDay={currentDate.getDate()}
           />
         </div>
       </div>

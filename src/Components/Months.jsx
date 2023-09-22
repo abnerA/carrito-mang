@@ -35,8 +35,8 @@ class Months extends React.Component {
   // Function para saber si el año es Bisiesto
   isLeap() {
     return (
-      (this.props.year % 100 !== 0 && this.props.year % 4 === 0) ||
-      this.props.year % 400 === 0
+      (this.props.stateYear % 100 !== 0 && this.props.stateYear % 4 === 0) ||
+      this.props.stateYear % 400 === 0
     );
   }
 
@@ -53,7 +53,15 @@ class Months extends React.Component {
           <div className={style.daysWeek}>Sáb</div>
           <div className={style.daysWeek}>Dom</div>
         </div>
-        <Week totalDays={dias} firstDay={this.props.firstDay} key={dias} currentDay={this.props.currentDay} />
+        <Week 
+        totalDays={dias} 
+        firstDay={this.props.firstDay} 
+        key={dias} 
+        currentDay={this.props.currentDay}
+        currentMonth={this.props.currentMonth}
+        stateMonth={this.props.stateMonth}
+        stateYear={this.props.stateYear}
+        currentYear={this.props.currentYear} />
       </div>
     );
   }

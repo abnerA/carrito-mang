@@ -76,17 +76,20 @@ class Calendary extends React.Component {
       <div className={style.calendary}>
         <div className={style.container}>
           <div className={style.navigation}>
-              <button onClick={this.lastMonth} className={style.btnLast}>
+              <button onClick={this.lastMonth} className={style.btnLast} aria-label="Cambiar al mes pasado">
                 <img src="img/left.svg" alt="arrow-left" />
               </button>
               <h4 className={style.title}>{this.state.month} {this.state.año}</h4>
-            <button onClick={this.nextMonth} className={style.btnNext}>
+            <button onClick={this.nextMonth} className={style.btnNext} aria-label="Cambiar al mes siguiente">
               <img src="img/right.svg" alt="arrow-right" />
             </button>
           </div>
           <Months
             numMonth={this.state.mes}
-            year={this.state.año}
+            stateMonth={this.state.month}
+            currentMonth={mes}
+            stateYear={this.state.año}
+            currentYear={parseInt(year)}
             firstDay={this.startDay()}
             currentDay={currentDate.getDate()}
           />
@@ -97,3 +100,4 @@ class Calendary extends React.Component {
 }
 
 export default Calendary;
+

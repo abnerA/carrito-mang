@@ -7,10 +7,10 @@ const estilos = {
 }
 
 function Day(props) {
-    // console.log(props.num);
     return(
         <>
-            <h2 className={style.dayNum} style={{ backgroundColor: props.currentDay === props.num ? estilos.active : estilos.inactive }}>
+            <h2 aria-label={`Día ${props.num}`} className={style.dayNum} 
+            style={{ backgroundColor: props.num === props.currentDay && props.currentMonth === props.stateMonth  && props.currentYear === props.stateYear ? estilos.active : estilos.inactive }}>
                 {props.num}
             </h2>
         </>

@@ -17,10 +17,25 @@
     opacity: 0.8;
     transition: 300ms;
     /* margin-top: -1px; */
-    background-color: red !important;
+    background-color: white !important;
 }
 
-h6 {
+h2 {
+    font-size: 12px;
+}
+
+.titleFestivity, .titleActivity {
     margin: 0px;
-    color: rgb(177, 3, 3);
+    font-size: 7.5px;
+    border-radius: 3px;
+    color: black;
+    text-align: center;
+}
+
+.titleFestivity {
+    background-color: green;
+}
+
+.titleActivity {
+    background-color: rgb(209, 52, 209);
 }

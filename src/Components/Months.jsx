@@ -13,8 +13,6 @@ class Months extends React.Component {
 
   //Function para saber la cantidad exacta de días que tiene el mes
   getTotalDays(month) {
-    if (month === -1) month = 11;
-
     if (
       month == 0 ||
       month == 2 ||

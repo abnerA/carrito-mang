@@ -19,18 +19,19 @@ const yearLast = {
     1: "Año nuevo",
     9: "Día de reyes",
     21: "Día de la Altagracia",
-    30: "Día de Duarte"}, // el día 26 de Enero se mueve para el 29
+    30: "Día de Duarte",
+  }, // el día 26 de Enero se mueve para el 29
   Febrero: { 27: "Día de la Independencia" },
   Marzo: {},
-  Abril: { 7: "Viernes Santo" }, // Viernes Santo 
-  Mayo: { 1: "Día del trabajo" }, // Día del trabajo 
-  Junio: {8: "Corpus Christi"}, // Corpus Christi
+  Abril: { 7: "Viernes Santo" }, // Viernes Santo
+  Mayo: { 1: "Día del trabajo" }, // Día del trabajo
+  Junio: { 8: "Corpus Christi" }, // Corpus Christi
   Julio: {},
   Agosto: { 16: "Día de la Restauración" },
   Septiembre: { 24: "Día de las Mercedes" },
   Octubre: {},
   Noviembre: { 6: "Día de la Constitución" }, // Día de la Constitución
-  Diciembre: { 25: "Día de Navidad" }
+  Diciembre: { 25: "Día de Navidad" },
 };
 
 const yearCurrent = {
@@ -38,10 +39,11 @@ const yearCurrent = {
     1: "Año nuevo",
     6: "Día de reyes",
     21: "Día de la Altagracia",
-    29: "Día de Duarte"},
+    29: "Día de Duarte",
+  },
   Febrero: { 27: "Día de la Independencia" },
-  Marzo: { 29: "Viernes Santo" }, 
-  Abril: { 29: "Día del trabajo" }, 
+  Marzo: { 29: "Viernes Santo" },
+  Abril: { 29: "Día del trabajo" },
   Mayo: { 30: "Corpus Christi" },
   Junio: {},
   Julio: {},
@@ -57,12 +59,13 @@ const yearNext = {
     1: "Año nuevo",
     6: "Día de reyes",
     21: "Día de la Altagracia",
-    26: "Día de Duarte"},
+    26: "Día de Duarte",
+  },
   Febrero: { 27: "Día de la Independencia" },
   Marzo: {},
   Abril: { 18: "Viernes Santo" },
   Mayo: { 5: "Día del trabajo" },
-  Junio: {19: "Corpus Christi"},
+  Junio: { 19: "Corpus Christi" },
   Julio: {},
   Agosto: { 16: "Día de la Restauración" },
   Septiembre: { 24: "Día de las Mercedes" },
@@ -75,40 +78,48 @@ const yearNext = {
 const activityLast = {
   Enero: {},
   Febrero: {},
-  Marzo: {11: "Representante de la central mundial"},
-  Abril: {1: "Discurso Especial",
-  4: "Conmemoración",
-  22: "Asamblea de Circuito"},
-  Mayo: {23: "Visita del Sup.",
-  24: "Visita del Sup.",
-  25: "Visita del Sup.",
-  26: "Visita del Sup.",
-  27: "Visita del Sup.",
-  28: "Visita del Sup."},
+  Marzo: { 11: "Representante de la central mundial" },
+  Abril: {
+    1: "Discurso Especial",
+    4: "Conmemoración",
+    22: "Asamblea de Circuito",
+  },
+  Mayo: {
+    23: "Visita del Sup.",
+    24: "Visita del Sup.",
+    25: "Visita del Sup.",
+    26: "Visita del Sup.",
+    27: "Visita del Sup.",
+    28: "Visita del Sup.",
+  },
   Junio: {},
   Julio: {},
   Agosto: {},
   Septiembre: {
     1: "Asamblea Regional",
     2: "Asamblea Regional",
-    3: "Asamblea Regional"
+    3: "Asamblea Regional",
   },
-  Octubre: {31: "Visita del Sup."},
-  Noviembre: { 1: "Visita del Sup.",
-  2: "Visita del Sup.",
-  3: "Visita del Sup.",
-  4: "Visita del Sup.",
-  5: "Visita del Sup.",
-  12: "Asamblea de Circuito" },
+  Octubre: { 31: "Visita del Sup." },
+  Noviembre: {
+    1: "Visita del Sup.",
+    2: "Visita del Sup.",
+    3: "Visita del Sup.",
+    4: "Visita del Sup.",
+    5: "Visita del Sup.",
+    12: "Asamblea de Circuito",
+  },
   Diciembre: {},
 };
 
 const activityCurrent = {
   Enero: {},
   Febrero: {},
-  Marzo: {9: "Discurso Especial",
-  16: "Asamblea de Circuito",
-  24: "Conmemoración"},
+  Marzo: {
+    9: "Discurso Especial",
+    16: "Asamblea de Circuito",
+    24: "Conmemoración",
+  },
   Abril: {},
   Mayo: {},
   Junio: {},
@@ -124,8 +135,7 @@ const activityNext = {
   Enero: {},
   Febrero: {},
   Marzo: {},
-  Abril: {5: "Discurso Especial",
-12: "Conmemoración"},
+  Abril: { 5: "Discurso Especial", 12: "Conmemoración" },
   Mayo: {},
   Junio: {},
   Julio: {},
@@ -137,38 +147,65 @@ const activityNext = {
 };
 
 function Festivity(props) {
-
   const backgroundColorToday =
     props.num === props.currentDay &&
     props.currentMonth === props.stateMonth &&
     props.currentYear === props.stateYear
       ? "white"
-      : (activityLast[props.stateMonth][props.num]) && (props.stateYear === props.currentYear) || 
-      (activityCurrent[props.stateMonth][props.num]) && (props.stateYear === props.currentYear + 1) || 
-      (activityNext[props.stateMonth][props.num]) && (props.stateYear === props.currentYear + 2)
+      : (activityLast[props.stateMonth][props.num] &&
+          props.stateYear === props.currentYear) ||
+        (activityCurrent[props.stateMonth][props.num] &&
+          props.stateYear === props.currentYear + 1) ||
+        (activityNext[props.stateMonth][props.num] &&
+          props.stateYear === props.currentYear + 2)
       ? "purple"
-      : (yearLast[props.stateMonth][props.num]) && (props.stateYear === props.currentYear) || (yearCurrent[props.stateMonth][props.num]) && 
-      (props.stateYear === props.currentYear + 1) || (yearNext[props.stateMonth][props.num]) && (props.stateYear === props.currentYear + 2)
-      ? "red" : "rgb(90, 153, 221)";
+      : (yearLast[props.stateMonth][props.num] &&
+          props.stateYear === props.currentYear) ||
+        (yearCurrent[props.stateMonth][props.num] &&
+          props.stateYear === props.currentYear + 1) ||
+        (yearNext[props.stateMonth][props.num] &&
+          props.stateYear === props.currentYear + 2)
+      ? "red"
+      : "rgb(90, 153, 221)";
 
-      const titleToday = props.stateYear === props.currentYear ? activityLast[props.stateMonth][props.num] || yearLast[props.stateMonth][props.num] : 
-      props.stateYear === props.currentYear + 1 ? activityCurrent[props.stateMonth][props.num] || yearCurrent[props.stateMonth][props.num] : 
-      props.stateYear === props.currentYear + 2 ? activityNext[props.stateMonth][props.num] || yearNext[props.stateMonth][props.num] : null;
+  const titleToday =
+    props.stateYear === props.currentYear
+      ? activityLast[props.stateMonth][props.num] ||
+        yearLast[props.stateMonth][props.num]
+      : props.stateYear === props.currentYear + 1
+      ? activityCurrent[props.stateMonth][props.num] ||
+        yearCurrent[props.stateMonth][props.num]
+      : props.stateYear === props.currentYear + 2
+      ? activityNext[props.stateMonth][props.num] ||
+        yearNext[props.stateMonth][props.num]
+      : null;
 
-      const titleFestivity = props.stateYear === props.currentYear ? yearLast[props.stateMonth][props.num] : 
-      props.stateYear === props.currentYear + 1 ? yearCurrent[props.stateMonth][props.num] : 
-      props.stateYear === props.currentYear + 2 ? yearNext[props.stateMonth][props.num] : null;
+  const titleFestivity =
+    props.stateYear === props.currentYear
+      ? yearLast[props.stateMonth][props.num]
+      : props.stateYear === props.currentYear + 1
+      ? yearCurrent[props.stateMonth][props.num]
+      : props.stateYear === props.currentYear + 2
+      ? yearNext[props.stateMonth][props.num]
+      : null;
 
-      const titleActivity = props.stateYear === props.currentYear ? activityLast[props.stateMonth][props.num] : 
-      props.stateYear === props.currentYear + 1 ? activityCurrent[props.stateMonth][props.num] : 
-      props.stateYear === props.currentYear + 2 ? activityNext[props.stateMonth][props.num] : null;
+  const titleActivity =
+    props.stateYear === props.currentYear
+      ? activityLast[props.stateMonth][props.num]
+      : props.stateYear === props.currentYear + 1
+      ? activityCurrent[props.stateMonth][props.num]
+      : props.stateYear === props.currentYear + 2
+      ? activityNext[props.stateMonth][props.num]
+      : null;
 
   return (
     <>
-      <h2 title={titleToday}
+      <h2
+        title={titleToday}
         aria-label={`Día ${props.num}`}
         className={style.dayNum}
-        style={{ backgroundColor: backgroundColorToday }} >
+        style={{ backgroundColor: backgroundColorToday }}
+      >
         {props.num}
       </h2>
       <h6 className={style.titleFestivity}>{titleFestivity}</h6>
@@ -178,3 +215,7 @@ function Festivity(props) {
 }
 
 export default Festivity;
+
+// Nota: Todo esto funciona muy bien, pero cuando haya un cambio de año
+// habrá que hacer un ajuste manual para que siga funcionando,
+// ya sea desde la misma base de datos de Firebase o directamente en el código.

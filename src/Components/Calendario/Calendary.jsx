@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Calendary.module.css";
-import Months from "./Components/Months";
+import Months from "./Months";
 
 let monthNames = [
   "Enero",

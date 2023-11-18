@@ -1,15 +1,21 @@
 .containerDays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    /* gap: 1px; */
 }
 
 .days {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    min-width: 35px;
+    /* margin: 1px; */
+    height: 52px;
+    background-color: #d9e8f5;
+    overflow: scroll;
+    border-radius: 3px;
     margin: 1px;
-    height: auto;
-    background-color: grey;
+}
+
+.days::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 8px;    /* Tamaño del scroll en horizontal */
+    display: none;  /* Ocultar scroll */
 }

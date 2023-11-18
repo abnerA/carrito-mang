@@ -151,22 +151,22 @@ function Festivity(props) {
     props.num === props.currentDay &&
     props.currentMonth === props.stateMonth &&
     props.currentYear === props.stateYear
-      ? "white"
+      ? "rgb(145, 190, 212)"
       : (activityLast[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear) ||
         (activityCurrent[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear + 1) ||
         (activityNext[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear + 2)
-      ? "purple"
+      ? "rgb(216, 80, 216)"
       : (yearLast[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear) ||
         (yearCurrent[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear + 1) ||
         (yearNext[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear + 2)
-      ? "red"
-      : "rgb(90, 153, 221)";
+      ? "rgb(235, 54, 54)"
+      : "#d9e8f5";
 
   const titleToday =
     props.stateYear === props.currentYear

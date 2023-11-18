@@ -1,7 +1,7 @@
 .calendary {
     background-color: rgb(61, 59, 59);
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,8 +9,9 @@
 }
 
 .container {
-    background-color: rgb(90, 153, 221);
-    width: 600px;
+    background-color: rgb(145, 190, 212);
+    min-width: 270px;
+    padding: 1%;
     height: auto;
     display: flex;
     justify-content: space-between;

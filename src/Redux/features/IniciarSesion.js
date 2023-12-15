@@ -90,7 +90,6 @@ export const iniciarSesion = createSlice({
     initialState,
     reducers: {
         login: (state, action) => {
-            console.log(action.payload);
             state.login = action.payload[0];
             state.textButton = action.payload[1];
             state.nameLog = action.payload[2];

@@ -2,16 +2,34 @@ import { collection, getDocs, query, doc, addDoc, deleteDoc, updateDoc } from "f
 import { db } from "./firebase";
 
 // Agregar docs
-export const savedPersonName = (name) => {
-    addDoc(collection(db, 'persons'), {name});
+export const savedPersonName = async (name, email) => {
+   addDoc(collection(db, "Hermanos"), {
+    name: name,
+    email: email
+   });
+
 }
+
 
 // Leer docs
 export const getPersons = async ()  => {
-    const result = await getDocs(query(collection(db, 'Participantes')));
+    const result = await getDocs(query(collection(db, 'Hermanos')));    
+    // result.forEach((doc) => {
+    //     console.log(doc.data().name);
+    // });
+
     return result;
 };
 
+
+// const querySnapshot = await getDocs(collection(db, "Hermanos"));
+// querySnapshot.forEach((doc) => {
+//   console.log(typeof doc.data().name);
+// });
+
+// querySnapshot.docChanges().map(value => {
+//     return console.log(value.doc.data().name);
+// })
 
 // DELETE
 export const deleteItem = async (id) => {

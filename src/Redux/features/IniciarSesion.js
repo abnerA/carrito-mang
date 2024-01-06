@@ -82,7 +82,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     login: 'none',
     textButton: 'Iniciar sesión',
-    nameLog: ''
+    nameLog: '',
+    modalAddParticipant: 'none'
 };
 
 export const iniciarSesion = createSlice({
@@ -120,9 +121,13 @@ export const iniciarSesion = createSlice({
         },
         cambioMonth: (state, action) => {
             state.monthCambiante = action.payload;
+        },
+        modalParticipant: (state, action) => {
+            state.modalAddParticipant = action.payload;
+            console.log(action.payload);
         }
     }
 });
 
-export const { login } = iniciarSesion.actions;
+export const { login, modalParticipant } = iniciarSesion.actions;
 export default iniciarSesion.reducer;

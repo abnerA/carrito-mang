@@ -153,48 +153,48 @@ function Festivity(props) {
     props.currentYear === props.stateYear
       ? "rgb(145, 190, 212)"
       : (activityLast[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear) ||
+          props.stateYear === props.currentYear - 1) ||
         (activityCurrent[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear + 1) ||
+          props.stateYear === props.currentYear) ||
         (activityNext[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear + 2)
+          props.stateYear === props.currentYear + 1)
       ? "rgb(216, 80, 216)"
       : (yearLast[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear) ||
+          props.stateYear === props.currentYear - 1) ||
         (yearCurrent[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear + 1) ||
+          props.stateYear === props.currentYear) ||
         (yearNext[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear + 2)
+          props.stateYear === props.currentYear + 1)
       ? "rgb(235, 54, 54)"
       : "#d9e8f5";
 
   const titleToday =
-    props.stateYear === props.currentYear
+    props.stateYear === props.currentYear - 1
       ? activityLast[props.stateMonth][props.num] ||
         yearLast[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear + 1
+      : props.stateYear === props.currentYear
       ? activityCurrent[props.stateMonth][props.num] ||
         yearCurrent[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear + 2
+      : props.stateYear === props.currentYear + 1
       ? activityNext[props.stateMonth][props.num] ||
         yearNext[props.stateMonth][props.num]
       : null;
 
   const titleFestivity =
-    props.stateYear === props.currentYear
+    props.stateYear === props.currentYear - 1
       ? yearLast[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear + 1
+      : props.stateYear === props.currentYear 
       ? yearCurrent[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear + 2
+      : props.stateYear === props.currentYear + 1
       ? yearNext[props.stateMonth][props.num]
       : null;
 
   const titleActivity =
-    props.stateYear === props.currentYear
+    props.stateYear === props.currentYear - 1
       ? activityLast[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear + 1
+      : props.stateYear === props.currentYear
       ? activityCurrent[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear + 2
+      : props.stateYear === props.currentYear + 1
       ? activityNext[props.stateMonth][props.num]
       : null;
 

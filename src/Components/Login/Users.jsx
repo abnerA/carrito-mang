@@ -6,38 +6,38 @@ import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../Redux/features/IniciarSesion";
 import { auth } from "../../firebase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import Register from "./Register";
 
 
 
-function Users(props) {
+function Users() {
   const start = useSelector((state) => state.inicio);
   const dispatch = useDispatch();
-  // console.log(start.textButton);
 
-  const [name, setName] = useState();
+  const [name, setName] = useState('');
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  // const obtener = async () => {
-  //   const p = await getPersons();
-  //   setName(p.docs[0].data().name);
-  // }
+  const [registro, setRegistro] = useState('none');
 
   useEffect(() => {
     getPersons().then(result => {
-      setName(result.docs[0].data().name);
-      setEmail(result.docs[0].data().email);
-      
-      // console.log(result.docs[0].data().name
-      // .indexOf('Abner Estévez'));
-    }).then(err => {
-      console.log(err);
+      let data = [];
+      let correo = [];
+      result.forEach((doc) => {
+        data.push({name: doc.data().name});
+        correo.push({email: doc.data().email})
+      });
+      setName(data)
+      setEmail(correo)
+
+    }).catch(e => {
+      console.log(e);
     });
   }, []);
+  
 
   const nameUser = (e) => {
-    e.preventDefault();
     setUserName(e.target.value);
   }
 
@@ -47,37 +47,51 @@ function Users(props) {
 
   const userSign = async (email, password) => {
     signInWithEmailAndPassword(auth, email, password).then((value) => {
-      console.log('Te has logeado ' + value.user.emailVerified);
+      console.log('Has confirmado tu correo ' + value.user.emailVerified); // Para saber si el usario confirmo su correo 
       setUserName('');
       setPassword(''); 
       dispatch(login(['none', 'Salir', userName]));
-    }).catch((error) => {
-      alert(error);
+    }).catch((e) => {
+      if (e.code === 'auth/invalid-login-credentials') {
+        alert('Tú contraseña es incorrecta')
+      } else {
+        alert(e.code);
+      }
     })
   } 
 
   const handleClick =  () => {
-    let indexUser = name.indexOf(userName); // index 0
-    let value = email[indexUser]; // en index 0 esta su correo
-    if (indexUser >= 0) {
-      userSign(value, password);
+    let nombre = name.map(value => {
+      let info = value.name
+      return info;
+    });
+
+    if (nombre.indexOf(userName) === -1) {
+      alert('usuario no existe, por favor revisa tu usuario');
     } else {
-      console.log('Usuario no exite');
+      const userEmail = email[nombre.indexOf(userName)].email;
+      userSign(userEmail, password);
     }
   }
 
-
+  const closeModal = () => {
+    if (start.textButton === 'Iniciar sesión') {
+      dispatch(login(['none', 'Iniciar sesión', '']))
+      setRegistro('none');
+    }
+  }
   return (
     <div className={style.container} style={{ display: start.login }}>
-        <span>X</span>
+        <span className={style.modalClose} onClick={closeModal}>X</span>
       <div className={style.content}>
+        <div className={style.login} style={{display: registro === 'none' ? 'flex' : 'none'}}>
           <label
             >Escribe tú nombre: <input list="nombres" value={userName}
             name="hermanos" onChange={nameUser}
           /></label>
           <datalist id="nombres">
           {!name ? 'loading...' : name.map((value, index) => {
-            return <option key={index} value={value}></option>
+            return <option key={index} value={value.name}></option>
             })}
           </datalist>
           <label>Contraseña:
@@ -85,23 +99,15 @@ function Users(props) {
           </label>
           <br />
           <button onClick={handleClick}>Iniciar sesión</button>
+          <button onClick={() => {setRegistro('flex')}}>
+            Registrarse
+          </button>
+        </div>
         <div>
-          <h4>Registrase:</h4>
-          <label> Nombre
-            <input type="text" />
-          </label>
-          <br />
-          <label> Apellido
-            <input type="text" />
-          </label>
-            <br />
-          <label> Email
-          <input type="text" />
-        </label>
-        <br />
-        <label> Contraseña
-          <input type="password" />
-        </label>
+          <Register
+            modal={registro}
+            fullName={name}
+           />
         </div>
       </div>
     </div>

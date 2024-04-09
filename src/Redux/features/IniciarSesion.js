@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    login: 'none',
-    textButton: 'Iniciar sesión',
     nameLog: '',
     modalAddParticipant: 'none',
     daySelect: 0,
@@ -15,23 +13,6 @@ export const iniciarSesion = createSlice({
     name: 'inicio',
     initialState,
     reducers: {
-        login: (state, action) => {
-            state.login = action.payload[0];
-            state.textButton = action.payload[1];
-            state.nameLog = action.payload[2];
-        },
-        logout: (state) => {
-            state.display3 = 'none';
-            state.display2 = 'flex';
-            state.name = 'Blanco';
-            state.estado = false;
-        },
-        handleClick: (state, action) => {
-            state.name = action.payload;
-            state.display1 = 'none';
-            state.title = 'Cerrar sesión';
-            state.estado = true;
-        },
         modal: (state) => {
             state.ventanaModal = 'none'
         },
@@ -62,5 +43,5 @@ export const iniciarSesion = createSlice({
     }
 });
 
-export const { login, modalParticipant, buttonDisabled, buttonAddParticipant } = iniciarSesion.actions;
+export const { modalParticipant, buttonDisabled, buttonAddParticipant } = iniciarSesion.actions;
 export default iniciarSesion.reducer;

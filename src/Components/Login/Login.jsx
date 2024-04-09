@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "./Login.module.css";
+import style from "./Style.module.css";
 import { auth } from "../../firebase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -22,15 +22,15 @@ function Login() {
   // Function para logearse
   const logIn = async () => {
     try {
-      const userCredential = await signInWithEmailAndPassword(
+      await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
-      console.log(userCredential.user);
+      // console.log(userCredential.user);
       navigate('/calendary');
     } catch (err) {
-      if(err.code === 'auth/wrong-password') {
+      if(err.code === 'auth/wrong-password' || err.code === 'auth/invalid-login-credentials') {
         setEstilo({
             display: 'block', 
             message: 'Contraseña incorrecta'
@@ -46,7 +46,10 @@ function Login() {
             message: 'Debes poner un correo que sea valido'
         })
       } else {
-          console.log(err.code);
+          setEstilo({
+            display: 'block',
+            message: err.code
+          })
       }
     }
   };
@@ -65,7 +68,7 @@ function Login() {
         </div>
 
         <div className={style.group}>
-          <label>Password</label>
+          <label>Contraseña</label>
           <input id="txtPassword" type="password" onChange={passwordValue} />
         </div>
 

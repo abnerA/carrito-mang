@@ -1,9 +1,8 @@
 import React from "react";
-import style from "./Register.module.css";
+import style from "./Style.module.css";
 import { useState } from "react";
-import { savedPersonName } from "../../firebase/app";
 import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
-import { sendEmail } from "../../firebase/firebase";
+// import { sendEmail } from "../../firebase/firebase";
 import { auth } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -58,23 +57,11 @@ function Register(props) {
   }
 
   const submit = () => {
-
     let nombreCompleto = name.charAt(0).toUpperCase() + name.slice(1) +
      ' ' + lastName.charAt(0).toUpperCase() + lastName.slice(1);
     createAccount(email, password, nombreCompleto);
-
-    // if (nombre.indexOf(fullName + ' ' + fullLastName) >= 0) {
-    //   alert('Este nombre de usario ya existe');
-    // } else {
-    //   createAccount(email, password)
-    //   savedPersonName(fullName + ' ' + fullLastName, email);
-    //   setName('');
-    //   setLastName('');
-    //   setEmail('');
-    //   setPassword('');
-    // }
-
   }
+  
   return (
     <div className={style.container}>
       <h2 className={style.title}>Registro</h2>

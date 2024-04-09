@@ -1,4 +1,4 @@
-import style from './RegisterSuccessful.module.css';
+import style from './Style.module.css';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -11,9 +11,9 @@ function RegisterSuccessful() {
 
     return(
         <div className={style.container}>
-            <h2>Te has registrado de manera exitosa.</h2>
+            <h2 className={style.title}>Te has registrado de manera exitosa.</h2>
             <h3>Ahora puedes iniciar sesión</h3>
-            <button type='button' onClick={handleClick}>Iniciar sesión</button>
+            <button type='button' className={style.btn} onClick={handleClick}>Iniciar sesión</button>
         </div>
     );
 }

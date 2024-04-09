@@ -1,4 +1,3 @@
-import React from "react";
 import style from "./Day.module.css";
 import Festivity from "./Festivity";
 import Participantes from "../Participantes/Participantes";
@@ -18,7 +17,8 @@ function Day(props) {
       </div>
       <div className={style.participantes}>
         <Participantes 
-        num={props.num} 
+        num={props.num}
+        names={props.names} 
         />
       </div>
     </div>

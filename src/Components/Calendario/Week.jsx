@@ -45,6 +45,7 @@ function Week(props) {
     stateMonth={props.stateMonth}
     stateYear={parseInt(props.stateYear)} // Aquí me aseguro que el año pase como un Numbre y no como un String
     currentYear={props.currentYear}
+    totalDays={props.totalDays}
     />
   );
   }

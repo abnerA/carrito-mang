@@ -2,17 +2,19 @@ import React from "react";
 import style from "./Register.module.css";
 import { useState } from "react";
 import { savedPersonName } from "../../firebase/app";
-import { createUserWithEmailAndPassword} from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { sendEmail } from "../../firebase/firebase";
 import { auth } from "../../firebase/firebase";
-
-
+import { useNavigate } from "react-router-dom";
 
 function Register(props) {
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate(); // navigate para cambiar de ruta una vez inicida la sesión 
+
 
   const nombre = (e) => {
     setName(e.target.value)
@@ -31,13 +33,16 @@ function Register(props) {
   }
 
   // Function para crear nuevo usuario
-  const createAccount = async (email, password) => {
+  const createAccount = async (email, password, fullName) => {
     try {
       const userCredencial = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(auth.currentUser, {
+        displayName: fullName})
       console.log(userCredencial)
       // La siguiente function es para enviar correo de confirmación de su correo
-      sendEmail()
-      alert(`Ya estas registrado ${name} ${lastName}`)
+      // sendEmail()
+      alert(`Ya estas registrado ${fullName}`);
+        navigate('/successful-registration');
     }
     catch(e) {
       if (e.code === 'auth/invalid-email') {
@@ -53,46 +58,48 @@ function Register(props) {
   }
 
   const submit = () => {
-    let fullName = name.charAt(0).toUpperCase() + name.slice(1);
-    let fullLastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
 
-    let nombre = props.fullName.map(value => {
-      let info = value.name
-      return info;
-    });
+    let nombreCompleto = name.charAt(0).toUpperCase() + name.slice(1) +
+     ' ' + lastName.charAt(0).toUpperCase() + lastName.slice(1);
+    createAccount(email, password, nombreCompleto);
 
-    if (nombre.indexOf(fullName + ' ' + fullLastName) >= 0) {
-      alert('Este nombre de usario ya existe');
-    } else {
-      createAccount(email, password)
-      savedPersonName(fullName + ' ' + fullLastName, email);
-      setName('');
-      setLastName('');
-      setEmail('');
-      setPassword('');
-    }
-
+    // if (nombre.indexOf(fullName + ' ' + fullLastName) >= 0) {
+    //   alert('Este nombre de usario ya existe');
+    // } else {
+    //   createAccount(email, password)
+    //   savedPersonName(fullName + ' ' + fullLastName, email);
+    //   setName('');
+    //   setLastName('');
+    //   setEmail('');
+    //   setPassword('');
+    // }
 
   }
   return (
-    <div className={style.container} style={{display: props.modal}}>
-      <label>
-        {"Nombre"}
-        <input type="text" value={name} onChange={nombre} />
-      </label>
-      <label>
-        {"Apellido"}
-        <input type="text" value={lastName} onChange={apellido} />
-      </label>
-      <label>
-        {"Email"}
-        <input type="text" value={email} onChange={correo} />
-      </label>
-      <label>
-        {"Contraseña"}
-        <input type="password" value={password} onChange={contraseña} />
-      </label>
-      <button onClick={submit}>Registrarse</button>
+    <div className={style.container}>
+      <h2 className={style.title}>Registro</h2>
+      <form>
+        <div className={style.group}>
+          <label>Nombre</label>
+          <input type="text" value={name} onChange={nombre} />
+        </div>
+
+        <div className={style.group}>
+          <label>Apellido</label>
+          <input type="text" value={lastName} onChange={apellido} />
+        </div>
+        
+        <div className={style.group}>
+          <label>Email</label>
+          <input type="text" value={email} onChange={correo} />
+        </div>
+        <div className={style.group}>
+          <label>Contraseña</label>
+          <input type="password" value={password} onChange={contraseña} />
+        </div>
+      </form>
+
+      <button type="button" className={style.btn} onClick={submit}>Registrarse</button>
     </div>
   );
 }

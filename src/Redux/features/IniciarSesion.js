@@ -36,12 +36,17 @@ export const iniciarSesion = createSlice({
         },
         buttonDisabled: (state, action) => {
             state.btnDisabled = action.payload;
+            // console.log(state.payload);
         },
         buttonAddParticipant: (state, action) => {
             state.arrayParticipant = action.payload;
+        },
+        nombreUser: (state, action) => {
+            state.nameLog = action.payload;
+            // console.log(action.payload);
         }
     }
 });
 
-export const { modalParticipant, buttonDisabled, buttonAddParticipant } = iniciarSesion.actions;
+export const { modalParticipant, buttonDisabled, buttonAddParticipant, nombreUser } = iniciarSesion.actions;
 export default iniciarSesion.reducer;

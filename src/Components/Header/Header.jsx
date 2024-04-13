@@ -5,10 +5,14 @@ import { signOut } from 'firebase/auth';
 import { auth } from "../../firebase/firebase";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { nombreUser } from "../../Redux/features/IniciarSesion";
+
 
 export function Header() {
 const [name, setName] = useState();
 const navigate = useNavigate();
+const dispatch = useDispatch();
 
 // En useEffect estamos comprobando si se ha iniciado sesión
 useEffect(() => {
@@ -18,6 +22,7 @@ useEffect(() => {
         navigate('/');
       } else if (user !== null) {
         setName(user.displayName);
+        dispatch(nombreUser(user.displayName))
       }
     });
   };

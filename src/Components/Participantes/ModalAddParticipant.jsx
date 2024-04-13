@@ -1,7 +1,7 @@
 import style from "./ModalAddParticipant.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { modalParticipant } from "../../Redux/features/IniciarSesion";
-// import { addparticipation } from "../../firebase/firebase";
+import { addparticipation } from "../../firebase/firebase";
 
 function ModalAddParticipant() {
   const start = useSelector((state) => state.inicio);
@@ -20,9 +20,12 @@ function ModalAddParticipant() {
     const objCopy = [...arrName];
     let arrIndex = arrName.indexOf('');
     objCopy[arrIndex] = nombre;
+    console.log(nombre);
 
-  
-    // addparticipation(dayNum, objCopy, `${month}/`);
+      // Function de firebase para agregar participante 
+    addparticipation(dayNum, objCopy, `${month}/`);
+
+    // Function de firebase para agregar las fechas de las participaciones
   }
  
   return (

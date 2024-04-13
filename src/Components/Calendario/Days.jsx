@@ -15,21 +15,24 @@ function Days(props) {
   const dispatch = useDispatch();
   const [day, setDay] = useState("");
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   const starCountRef = ref(dataB, props.stateMonth + "/");
+    const starCountRef = ref(dataB, props.stateMonth + "/");
     
-  //   onValue(starCountRef, (snapshot) => {
-  //     const data = snapshot.val();
-  //     console.log(data);
-  //     // let newList = [];
-  //     // for (let i = 1; i < props.totalDays + 1; i++) {
-  //     //   let numDias = "day" + i;
-  //     //   newList.push(data[numDias].name);
-  //     // }
-  //     // setDay(newList);
-  //   });
-  // }, [props.stateMonth, props.totalDays]);
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      let newList = [];
+      for (let i = 1; i < props.totalDays + 1; i++) {
+        let numDias = "day" + i;
+        newList.push(data[numDias].name);
+      }
+      setDay(newList);
+      Object.keys(newList).forEach((clave) => {
+        const arregloActual = newList[clave];
+        console.log(`Arreglo ${clave}:`, arregloActual);
+      })
+    });
+  }, [props.stateMonth, props.totalDays]);
 
   const boton = (e) => {
     let nombre = start.nameLog;
@@ -38,19 +41,17 @@ function Days(props) {
     if (false) {
       alert("Tienes que iniciar sesión");
     } else {
-      dispatch(modalParticipant(["flex", e, props.stateMonth]));
-
-  
-      // if (day[e - 1].indexOf("") === -1) {
-      //   dispatch(buttonDisabled(true));
-      //   console.log("no hay espacio disponible");
-      // } else if (day[e - 1].indexOf(nombre) > -1) {
-      //   dispatch(buttonDisabled(true));
-      //   console.log("tu nombre ya esta aquí");
-      // } else {
-      //   dispatch(buttonDisabled(false));
-      //   dispatch(buttonAddParticipant(arrName));
-      // }
+      dispatch(modalParticipant(["flex", e, props.stateMonth]));  
+      if (day[e - 1].indexOf("") === -1) {
+        dispatch(buttonDisabled(true));
+        console.log("no hay espacio disponible");
+      } else if (day[e - 1].indexOf(nombre) > -1) {
+        dispatch(buttonDisabled(true));
+        console.log("tu nombre ya esta aquí");
+      } else {
+        dispatch(buttonDisabled(false));
+        dispatch(buttonAddParticipant(arrName));
+      }
     }
   };
   return (

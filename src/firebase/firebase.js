@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, connectAuthEmulator } from "firebase/auth";
-import { getDatabase, onValue, ref, set} from "firebase/database";
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import { getDatabase, ref, set} from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,18 +17,13 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-connectAuthEmulator(auth, "http://localhost:9099");
+// connectAuthEmulator(auth, "http://localhost:9099");
 
 // Para acceder a la DB de Firestore Database
 export const db = getFirestore(app);
 
 // Para acceder a la DB de Realtime Database
 export const dataB = getDatabase(app);
-const starCountRef = ref(dataB, "Abril/");
-onValue(starCountRef, (snapshot) => {
-  const data = snapshot.val();
-  console.log(data);
-});
 
 // Function para crear nuevos usuarios
 export const createAccount = async (email, password) => {
@@ -82,36 +77,58 @@ export function addparticipation(userId, name, month) {
 // });
 
 
-// addparticipation("Samuel Pérez", ["", "", "", "", ""], "Agosto/")
+// addparticipation("Samuel Pérez", ["", "", "", "", ""], "Abril/")
 
 // addName("day1", ["", "", "", "", "", ""], "Abril/");
-// addName("day2", ["", "", "", "", "", ""], "Abril/");
-// addName("day3", ["", "", "", "", "", ""], "Abril/");
-// addName("day4", ["", "", "", "", "", ""], "Abril/");
-// addName("day5", ["", "", "", "", "", ""], "Abril/");
-// addName("day6", ["", "", "", "", "", ""], "Abril/");
-// addName("day7", ["", "", "", "", "", ""], "Abril/");
-// addName("day8", ["", "", "", "", "", ""], "Abril/");
-// addName("day9", ["", "", "", "", "", ""], "Abril/");
-// addName("day10", ["", "", "", "", "", ""], "Abril/");
-// addName("day11", ["", "", "", "", "", ""], "Abril/");
-// addName("day12", ["", "", "", "", "", ""], "Abril/");
-// addName("day13", ["", "", "", "", "", ""], "Abril/");
-// addName("day14", ["", "", "", "", "", ""], "Abril/");
-// addName("day15", ["", "", "", "", "", ""], "Abril/");
-// addName("day16", ["", "", "", "", "", ""], "Abril/");
-// addName("day17", ["", "", "", "", "", ""], "Abril/");
-// addName("day18", ["", "", "", "", "", ""], "Abril/");
-// addName("day19", ["", "", "", "", "", ""], "Abril/");
-// addName("day20", ["", "", "", "", "", ""], "Abril/");
-// addName("day21", ["", "", "", "", "", ""], "Abril/");
-// addName("day22", ["", "", "", "", "", ""], "Abril/");
-// addName("day23", ["", "", "", "", "", ""], "Abril/");
-// addName("day24", ["", "", "", "", "", ""], "Abril/");
-// addName("day25", ["", "", "", "", "", ""], "Abril/");
-// addName("day26", ["", "", "", "", "", ""], "Abril/");
-// addName("day27", ["", "", "", "", "", ""], "Abril/");
-// addName("day28", ["", "", "", "", "", ""], "Abril/");
-// addName("day29", ["", "", "", "", "", ""], "Abril/");
-// addName("day30", ["", "", "", "", "", ""], "Abril/");
-// addName("day31", ["", "", "", "", "", ""], "Abril/");
+
+// function addMeses (mes) {
+//   addName("day1", ["", "", "", "", "", ""], mes);
+//   addName("day2", ["", "", "", "", "", ""], mes);
+//   addName("day3", ["", "", "", "", "", ""], mes);
+//   addName("day4", ["", "", "", "", "", ""], mes);
+//   addName("day5", ["", "", "", "", "", ""], mes);
+//   addName("day6", ["", "", "", "", "", ""], mes);
+//   addName("day7", ["", "", "", "", "", ""], mes);
+//   addName("day8", ["", "", "", "", "", ""], mes);
+//   addName("day9", ["", "", "", "", "", ""], mes);
+//   addName("day10", ["", "", "", "", "", ""], mes);
+//   addName("day11", ["", "", "", "", "", ""], mes);
+//   addName("day12", ["", "", "", "", "", ""], mes);
+//   addName("day13", ["", "", "", "", "", ""], mes);
+//   addName("day14", ["", "", "", "", "", ""], mes);
+//   addName("day15", ["", "", "", "", "", ""], mes);
+//   addName("day16", ["", "", "", "", "", ""], mes);
+//   addName("day17", ["", "", "", "", "", ""], mes);
+//   addName("day18", ["", "", "", "", "", ""], mes);
+//   addName("day19", ["", "", "", "", "", ""], mes);
+//   addName("day20", ["", "", "", "", "", ""], mes);
+//   addName("day21", ["", "", "", "", "", ""], mes);
+//   addName("day22", ["", "", "", "", "", ""], mes);
+//   addName("day23", ["", "", "", "", "", ""], mes);
+//   addName("day24", ["", "", "", "", "", ""], mes);
+//   addName("day25", ["", "", "", "", "", ""], mes);
+//   addName("day26", ["", "", "", "", "", ""], mes);
+//   addName("day27", ["", "", "", "", "", ""], mes);
+//   addName("day28", ["", "", "", "", "", ""], mes);
+//   addName("day29", ["", "", "", "", "", ""], mes);
+//   addName("day30", ["", "", "", "", "", ""], mes);
+//   addName("day31", ["", "", "", "", "", ""], mes);
+// }
+
+// function addNombre (name) {
+//   addparticipation(name, ["", "", "", "", ""], "Enero/")
+//   addparticipation(name, ["", "", "", "", ""], "Febrero/")
+//   addparticipation(name, ["", "", "", "", ""], "Marzo/")
+//   addparticipation(name, ["", "", "", "", ""], "Abril/")
+//   addparticipation(name, ["", "", "", "", ""], "Mayo/")
+//   addparticipation(name, ["", "", "", "", ""], "Junio/")
+//   addparticipation(name, ["", "", "", "", ""], "Julio/")
+//   addparticipation(name, ["", "", "", "", ""], "Agosto/")
+//   addparticipation(name, ["", "", "", "", ""], "Septiembre/")
+//   addparticipation(name, ["", "", "", "", ""], "Octubre/")
+//   addparticipation(name, ["", "", "", "", ""], "Noviembre/")
+//   addparticipation(name, ["", "", "", "", ""], "Diciembre/")
+// }
+
+// addMeses("Diciembre/");
+// addNombre("Abner Estévez")

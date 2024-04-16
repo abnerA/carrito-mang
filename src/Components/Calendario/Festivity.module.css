@@ -1,5 +1,5 @@
 .dayNum {
-    width: 8px;
+    /* width: 8px;
     height: 8px;
     font-size: 8px;
     display: flex;
@@ -9,7 +9,10 @@
     border-radius: 50%;
     cursor: pointer;
     transition: 300ms;
-    margin: 0px;
+    margin: 0px; */
+    font-size: 8px;
+    width: 100%;
+    text-align: center;
 }
 
 .dayNum:hover {
@@ -18,21 +21,17 @@
     background-color: white !important;
 }
 
-h2 {
-    font-size: 12px;
-}
-
 .titleFestivity, .titleActivity {
-    margin: 0px;
+    width: 100%;
     font-size: 5px;
-    border-radius: 2px;
     color: black;
-    text-align: center;
-    margin: 0px 1px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .titleFestivity {
-    background-color: rgb(98, 184, 98);
+    background-color: rgb(235, 54, 54);
 }
 
 .titleActivity {

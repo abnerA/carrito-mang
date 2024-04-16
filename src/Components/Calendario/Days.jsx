@@ -10,10 +10,41 @@ import {
 import { dataB } from "../../firebase/firebase";
 import { ref, onValue } from "firebase/database";
 
+ function month(value) {
+  if (value === "Enero") {
+    return "jan";
+  } else if (value === "Febrero") {
+    return "feb";
+  } else if (value === "Marzo") {
+    return "mar";
+  } else if (value === "Abril") {
+    return "apr";
+  } else if (value === "Mayo") {
+    return "may";
+  } else if (value === "Junio") {
+    return "jun";
+  } else if (value === "Julio") {
+    return "jul";
+  } else if (value === "Agosto") {
+    return "aug";
+  } else if (value === "Septiembre") {
+    return "sep";
+  } else if (value === "Octubre") {
+    return "oct";
+  } else if (value === "Noviembre") {
+    return "nov";
+  } else if (value === "Diciembre") {
+    return "dec";
+  }
+}
+
+
 function Days(props) {
   const start = useSelector((state) => state.inicio);
   const dispatch = useDispatch();
   const [day, setDay] = useState("");
+
+  // console.log(day);
 
   useEffect(() => {
 
@@ -27,21 +58,37 @@ function Days(props) {
         newList.push(data[numDias].name);
       }
       setDay(newList);
-      Object.keys(newList).forEach((clave) => {
-        const arregloActual = newList[clave];
-        console.log(`Arreglo ${clave}:`, arregloActual);
-      })
+      dispatch(buttonAddParticipant(newList));
     });
   }, [props.stateMonth, props.totalDays]);
 
   const boton = (e) => {
-    let nombre = start.nameLog;
-    const arrName = day[e - 1];
+    let obtenerMonth = month(props.stateMonth);
+    let daySelectDate = new Date(`${obtenerMonth} ${e} ${props.stateYear}`);
+    const dayWeek = () => {
+      if (daySelectDate.getDay() === 0) {
+          return 'Domingo';
+      } else if (daySelectDate.getDay() === 1) {
+        return 'Lunes';
+      } else if (daySelectDate.getDay() === 2) {
+        return 'Martes'
+      } else if (daySelectDate.getDay() === 3) {
+        return 'Miércoles';
+      } else if (daySelectDate.getDay() === 4) {
+        return 'Jueves';
+      } else if (daySelectDate.getDay() === 5) {
+        return 'Viernes';
+      } else if (daySelectDate.getDay() === 6) {
+        return 'Sábado';
+      }
+    }
 
-    if (false) {
-      alert("Tienes que iniciar sesión");
-    } else {
-      dispatch(modalParticipant(["flex", e, props.stateMonth]));  
+    let nombre = start.nameLog;
+    // const arrName = day[e - 1];
+    // console.log(arrName);
+
+    dispatch(modalParticipant([dayWeek(), e, props.stateMonth])); 
+
       if (day[e - 1].indexOf("") === -1) {
         dispatch(buttonDisabled(true));
         console.log("no hay espacio disponible");
@@ -50,10 +97,9 @@ function Days(props) {
         console.log("tu nombre ya esta aquí");
       } else {
         dispatch(buttonDisabled(false));
-        dispatch(buttonAddParticipant(arrName));
       }
-    }
   };
+
   return (
     <div className={style.containerDays}>
       {(function () {

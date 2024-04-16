@@ -9,12 +9,10 @@
 }
 
 .festivity {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
 
-.participantes {
-    width: 100%;
 }

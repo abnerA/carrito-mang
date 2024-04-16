@@ -43,7 +43,7 @@ function Week(props) {
     currentDay={props.currentDay}
     currentMonth={props.currentMonth}
     stateMonth={props.stateMonth}
-    stateYear={parseInt(props.stateYear)} // Aquí me aseguro que el año pase como un Numbre y no como un String
+    stateYear={parseInt(props.stateYear)} // Aquí me aseguro que el año pase como un Number y no como un String
     currentYear={props.currentYear}
     totalDays={props.totalDays}
     />

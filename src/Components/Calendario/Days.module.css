@@ -2,15 +2,17 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     /* gap: 1px; */
+    
 }
 
 .days {
     min-width: 35px;
     /* margin: 1px; */
-    height: 52px;
+    height: 35px;
     background-color: #d9e8f5;
     overflow: scroll;
     border-radius: 3px;
+    border: solid 1px hsl(0, 0%, 50%);
     margin: 1px;
 }
 

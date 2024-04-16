@@ -9,13 +9,15 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    /* margin: 1px; */
 }
 
 .daysWeek {
     background-color: white;
     width: 100%;
-    text-align: center;
+    height: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: 1px;
     margin-right: 1px;
     border-radius: 3px;

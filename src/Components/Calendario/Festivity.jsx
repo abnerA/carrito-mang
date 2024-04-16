@@ -116,15 +116,27 @@ const activityCurrent = {
   Enero: {},
   Febrero: {},
   Marzo: {
-    9: "Discurso Especial",
-    16: "Asamblea de Circuito",
+    9: "Disc. Especial",
+    16: "Asamblea",
     24: "Conmemoración",
   },
   Abril: {},
-  Mayo: {},
-  Junio: {},
+  Mayo: {
+    28: "Visita del Sup.",
+    29: "Visita del Sup.",
+    30: "Visita del Sup.",
+    31: "Visita del Sup."
+  },
+  Junio: {
+    1: "Visita del Sup.",
+    2: "Visita del Sup."
+  },
   Julio: {},
-  Agosto: {},
+  Agosto: {
+    16: "Asamblea",
+    17: "Asamblea",
+    18: "Asamblea"
+  },
   Septiembre: {},
   Octubre: {},
   Noviembre: {},
@@ -151,22 +163,22 @@ function Festivity(props) {
     props.num === props.currentDay &&
     props.currentMonth === props.stateMonth &&
     props.currentYear === props.stateYear
-      ? "rgb(145, 190, 212)"
+      ? "rgb(145, 190, 212)" // Azul oscuro
       : (activityLast[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear - 1) ||
         (activityCurrent[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear) ||
         (activityNext[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear + 1)
-      ? "rgb(216, 80, 216)"
+      ? "rgb(216, 80, 216)" // Color morado
       : (yearLast[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear - 1) ||
         (yearCurrent[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear) ||
         (yearNext[props.stateMonth][props.num] &&
           props.stateYear === props.currentYear + 1)
-      ? "rgb(235, 54, 54)"
-      : "#d9e8f5";
+      ? "rgb(235, 54, 54)" // Color Rojo
+      : "#d9e8f5"; // El color de fondo que tienen todos
 
   const titleToday =
     props.stateYear === props.currentYear - 1
@@ -208,8 +220,9 @@ function Festivity(props) {
       >
         {props.num}
       </h2>
-      <h6 className={style.titleFestivity}>{titleFestivity}</h6>
-      <h6 className={style.titleActivity}>{titleActivity}</h6>
+      <h6 className={style.titleActivity} style={{height: titleActivity === undefined ? "0px" : "10px"}} >{titleActivity}</h6>
+      <h6 className={style.titleFestivity} style={{height: titleFestivity === undefined ? "0px" : "10px" }} >
+        {titleFestivity === undefined ? "" : "Día feriado"}</h6>
     </>
   );
 }

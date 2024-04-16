@@ -1,6 +1,5 @@
 import style from "./Day.module.css";
 import Festivity from "./Festivity";
-import Participantes from "../Participantes/Participantes";
 
 function Day(props) {
   return (
@@ -13,12 +12,6 @@ function Day(props) {
           currentYear={props.currentYear}
           currentDay={props.currentDay}
           num={props.num}
-        />
-      </div>
-      <div className={style.participantes}>
-        <Participantes 
-        num={props.num}
-        names={props.names} 
         />
       </div>
     </div>

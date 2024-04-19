@@ -61,15 +61,19 @@ function Login() {
   return (
     <div className={style.container}>
       <h2 className={style.title}>Acceso</h2>
-      <form>
+      <form onSubmit={logIn} >
         <div className={style.group}>
-          <label>Email</label>
-          <input id="txtEmail" type="email" onChange={emailValue} />
+          <label htmlFor="email" >Email</label>
+          <input id="email" type="email" name="email" autoComplete="true" onChange={emailValue} />
         </div>
 
         <div className={style.group}>
-          <label>Contraseña</label>
-          <input id="txtPassword" type="password" onChange={passwordValue} />
+          <label htmlFor="password" >Contraseña</label>
+          <input id="password" name="password" type="password" onChange={passwordValue} onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                logIn()
+              }
+            }} />
         </div>
 
         {/* Div para poner el mensaje de error */}

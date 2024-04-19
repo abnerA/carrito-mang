@@ -1,34 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    nameLog: '',
-    dayWeek: '',
+    userLogin: '',
+    dayWords: '',
     daySelect: 0,
+    dayWeekNumber: 0,
     monthCurrent: '',
-    btnDisabled: false,
-    arrayParticipant: ['']
+    dayArray: '',
+    fullMonthArray: [''] // Aquí recibimos el array completo de todo un mes
 };
 
 export const iniciarSesion = createSlice({
     name: 'inicio',
     initialState,
     reducers: {
-        modalParticipant: (state, action) => {
-            state.dayWeek = action.payload[0];
+        participants: (state, action) => {
+            state.dayWords = action.payload[0];
             state.daySelect = action.payload[1];
             state.monthCurrent = action.payload[2];
+            state.dayWeekNumber = action.payload[3];
         },
-        buttonDisabled: (state, action) => {
-            state.btnDisabled = action.payload;
+        fullArray: (state, action) => {
+            state.fullMonthArray = action.payload;
         },
-        buttonAddParticipant: (state, action) => {
-            state.arrayParticipant = action.payload;
+        userName: (state, action) => {
+            state.userLogin = action.payload;
         },
-        nombreUser: (state, action) => {
-            state.nameLog = action.payload;
+        fullDayArray: (state, action) => {
+            state.dayArray = action.payload;
         }
     }
 });
 
-export const { modalParticipant, buttonDisabled, buttonAddParticipant, nombreUser } = iniciarSesion.actions;
+export const { participants, fullArray, fullDayArray, userName } = iniciarSesion.actions;
 export default iniciarSesion.reducer;

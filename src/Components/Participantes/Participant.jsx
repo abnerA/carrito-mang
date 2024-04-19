@@ -1,55 +1,51 @@
 import style from "./Participant.module.css";
 import { useSelector } from "react-redux";
-import { addparticipation } from "../../firebase/firebase";
 import { useEffect, useState } from "react";
+import ButtonParticipant from "./ButtonPartcipant";
 
 function Participant() {
-
+  const start = useSelector((state) => state.inicio);
   const [names, setNames] = useState('');
-   const start = useSelector((state) => state.inicio);
-  //  console.log(start);
 
   useEffect(() => {
-    setNames(start.arrayParticipant[start.daySelect - 1])
-  }, [start.daySelect, start.arrayParticipant])
+    setNames(start.fullMonthArray[start.daySelect - 1])
+  }, [start.daySelect, start.fullMonthArray]);
 
-  const addParticipant = () => {
-    let dayNum = 'day' + start.daySelect;
-    let month = start.monthCurrent + '/';
-    let nombre = start.nameLog;
-    let arrName = start.arrayParticipant;
-
-    const objCopy = [...arrName];
-    let arrIndex = arrName.indexOf('');
-    objCopy[arrIndex] = nombre;
-
-      // Function de firebase para agregar participante 
-    addparticipation(dayNum, objCopy, `${month}/`);
-
-    // Function de firebase para agregar las fechas de las participaciones
-  }
  
   return (
     <div className={style.container}>
       <div className={style.content}>
-        <h4>{start.dayWeek} {start.daySelect} de {start.monthCurrent}</h4>
-        <div>
-          <p><strong>Lugar:</strong> Cruce de Manoguayabo</p>
-          <h5>Turno de la mañana 7:00 a 10:00 AM.</h5>
-            <p>{!names ? '' : names[0]}</p>
+        <h4>{start.dayWords} {start.daySelect} de {start.monthCurrent}</h4>
+        <div style={{display: 
+          start.dayWeekNumber === 1 || start.dayWeekNumber === 4 || start.dayWeekNumber === 6 ? 'block' : 'none' }}>
+          <p><strong>Lugar:</strong> {start.dayWeekNumber === 6 ? 'Av. La Cordillera' : 'Curce de Manoguayabo'}</p>
+          <h5>{start.dayWeekNumber === 6 ? 'Turno de la mañana 8:00 a 11:00 AM.' : 'Turno de la mañana 7:00 a 10:00 AM.'}</h5>
+            <p>{!names ? '' : names[0]}</p> 
             <p>{!names ? '' : names[1]}</p>
             <p>{!names ? '' : names[2]}</p>
-          <button disabled={start.btnDisabled} onClick={addParticipant}>Anotarme</button>
-          <button>Quitarme</button>
+            <ButtonParticipant
+            title={'Anotarme'}
+            section={'morning'}
+            action={'added'} />
+            <ButtonParticipant
+            title={'Quitarme'}
+            section={'morning'}
+            action={'delete'} />
           <hr />
         </div>
-        <div>
+        <div style={{display: start.dayWeekNumber === 1 || start.dayWeekNumber === 2 ? 'block' : 'none' }} >
           <h5>Turno de la tarde de 4:00 a 7:00 PM.</h5>
             <p>{!names ? '' : names[3]}</p>
             <p>{!names ? '' : names[4]}</p>
             <p>{!names ? '' : names[5]}</p>
-          <button disabled={start.btnDisabled} onClick={addParticipant}>Anotarme</button>
-          <button>Quitarme</button>
+            <ButtonParticipant
+            title={'Anotarme'}
+            section={'afternoon'}
+            action={'added'} />
+            <ButtonParticipant
+            title={'Quitarme'}
+            section={'afternoon'}
+            action={'delete'} />
         </div>
       </div>
     </div>

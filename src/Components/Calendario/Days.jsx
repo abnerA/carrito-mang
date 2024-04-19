@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import style from "./Days.module.css";
 import Day from "./Day";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
-  buttonAddParticipant,
-  buttonDisabled,
-  modalParticipant,
+  fullArray,
+  participants,
+  fullDayArray,
 } from "../../Redux/features/IniciarSesion";
 import { dataB } from "../../firebase/firebase";
 import { ref, onValue } from "firebase/database";
 
- function month(value) {
+ function month(value) { // Obtengo los días de la semana en ingles
   if (value === "Enero") {
     return "jan";
   } else if (value === "Febrero") {
@@ -40,14 +40,11 @@ import { ref, onValue } from "firebase/database";
 
 
 function Days(props) {
-  const start = useSelector((state) => state.inicio);
+  // const start = useSelector((state) => state.inicio);
   const dispatch = useDispatch();
   const [day, setDay] = useState("");
 
-  // console.log(day);
-
   useEffect(() => {
-
     const starCountRef = ref(dataB, props.stateMonth + "/");
     
     onValue(starCountRef, (snapshot) => {
@@ -58,46 +55,44 @@ function Days(props) {
         newList.push(data[numDias].name);
       }
       setDay(newList);
-      dispatch(buttonAddParticipant(newList));
+      dispatch(fullArray(newList));
     });
-  }, [props.stateMonth, props.totalDays]);
+  }, [props.stateMonth, props.totalDays, dispatch]);
+
 
   const boton = (e) => {
-    let obtenerMonth = month(props.stateMonth);
-    let daySelectDate = new Date(`${obtenerMonth} ${e} ${props.stateYear}`);
-    const dayWeek = () => {
-      if (daySelectDate.getDay() === 0) {
+    let obtenerMonth = month(props.stateMonth); // Obtengo los días de la semana en ingles para poder
+    let daySelectDate = new Date(`${obtenerMonth} ${e} ${props.stateYear}`); // pasarlo a daySelecDate
+    let dayWeek = daySelectDate.getDay(); // Número del día de la semana
+
+    const returnDaySpanish = () => { // Me devuelve el día de la semana en español de acuerdo al número
+      if (dayWeek === 0) {
           return 'Domingo';
-      } else if (daySelectDate.getDay() === 1) {
+      } else if (dayWeek === 1) {
         return 'Lunes';
-      } else if (daySelectDate.getDay() === 2) {
+      } else if (dayWeek === 2) {
         return 'Martes'
-      } else if (daySelectDate.getDay() === 3) {
+      } else if (dayWeek === 3) {
         return 'Miércoles';
-      } else if (daySelectDate.getDay() === 4) {
+      } else if (dayWeek === 4) {
         return 'Jueves';
-      } else if (daySelectDate.getDay() === 5) {
+      } else if (dayWeek === 5) {
         return 'Viernes';
-      } else if (daySelectDate.getDay() === 6) {
+      } else if (dayWeek === 6) {
         return 'Sábado';
       }
     }
 
-    let nombre = start.nameLog;
-    // const arrName = day[e - 1];
+    const arrName = day[e - 1];
+
     // console.log(arrName);
+    dispatch(fullDayArray(arrName));
 
-    dispatch(modalParticipant([dayWeek(), e, props.stateMonth])); 
 
-      if (day[e - 1].indexOf("") === -1) {
-        dispatch(buttonDisabled(true));
-        console.log("no hay espacio disponible");
-      } else if (day[e - 1].indexOf(nombre) > -1) {
-        dispatch(buttonDisabled(true));
-        console.log("tu nombre ya esta aquí");
-      } else {
-        dispatch(buttonDisabled(false));
+    if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6) {
+      dispatch(participants([returnDaySpanish(), e, props.stateMonth, dayWeek])); // Día en español - fecha - y el mes - #del día
       }
+
   };
 
   return (
@@ -119,6 +114,7 @@ function Days(props) {
                 stateYear={props.stateYear}
                 currentYear={props.currentYear}
                 names={day[i - 1]}
+                key={props.stateMonth}
               />
             </div>
           );

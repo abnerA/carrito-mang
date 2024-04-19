@@ -81,6 +81,7 @@ export function addparticipation(userId, name, month) {
 
 // addName("day1", ["", "", "", "", "", ""], "Abril/");
 
+
 // function addMeses (mes) {
 //   addName("day1", ["", "", "", "", "", ""], mes);
 //   addName("day2", ["", "", "", "", "", ""], mes);
@@ -130,5 +131,6 @@ export function addparticipation(userId, name, month) {
 //   addparticipation(name, ["", "", "", "", ""], "Diciembre/")
 // }
 
-// addMeses("Diciembre/");
+
+// addMeses("Abril/");
 // addNombre("Abner Estévez")

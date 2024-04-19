@@ -67,22 +67,22 @@ function Register(props) {
       <h2 className={style.title}>Registro</h2>
       <form>
         <div className={style.group}>
-          <label>Nombre</label>
-          <input type="text" value={name} onChange={nombre} />
+          <label htmlFor="name">Nombre</label>
+          <input type="text" name="name" id="name" autoComplete="true" value={name} onChange={nombre} />
         </div>
 
         <div className={style.group}>
-          <label>Apellido</label>
-          <input type="text" value={lastName} onChange={apellido} />
+          <label htmlFor="lastName" >Apellido</label>
+          <input type="text" name="lastName" id="lastName" value={lastName} onChange={apellido} />
         </div>
         
         <div className={style.group}>
-          <label>Email</label>
-          <input type="text" value={email} onChange={correo} />
+          <label htmlFor="email">Email</label>
+          <input type="text" name="email" id="email" autoComplete="true" value={email} onChange={correo} />
         </div>
         <div className={style.group}>
-          <label>Contraseña</label>
-          <input type="password" value={password} onChange={contraseña} />
+          <label htmlFor="password">Contraseña</label>
+          <input type="password" name="password" id="password" value={password} onChange={contraseña} />
         </div>
       </form>
 

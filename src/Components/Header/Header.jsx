@@ -6,7 +6,7 @@ import { auth } from "../../firebase/firebase";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { nombreUser } from "../../Redux/features/IniciarSesion";
+import { userName } from "../../Redux/features/IniciarSesion";
 
 
 export function Header() {
@@ -22,7 +22,7 @@ useEffect(() => {
         navigate('/');
       } else if (user !== null) {
         setName(user.displayName);
-        dispatch(nombreUser(user.displayName))
+        dispatch(userName(user.displayName))
       }
     });
   };

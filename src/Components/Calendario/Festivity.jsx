@@ -131,7 +131,14 @@ const activityCurrent = {
     1: "Visita del Sup.",
     2: "Visita del Sup."
   },
-  Julio: {},
+  Julio: {
+    22: "ESP",
+    23: "ESP",
+    24: "ESP",
+    25: "ESP",
+    26: "ESP",
+    27: "ESP"
+  },
   Agosto: {
     16: "Asamblea",
     17: "Asamblea",
@@ -139,7 +146,9 @@ const activityCurrent = {
   },
   Septiembre: {},
   Octubre: {},
-  Noviembre: {},
+  Noviembre: {
+    24: "Asamblea"
+  },
   Diciembre: {},
 };
 

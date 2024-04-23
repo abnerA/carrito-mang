@@ -18,4 +18,13 @@ h4, h5, p {
     border-radius: 5px;
 }
 
+.shares {
+    display: flex;
+    flex-direction: column;
+}
+
+.shares .participant {
+    display: flex;
+    flex-direction: column;
+}
 

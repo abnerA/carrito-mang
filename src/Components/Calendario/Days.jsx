@@ -10,7 +10,7 @@ import {
 import { dataB } from "../../firebase/firebase";
 import { ref, onValue } from "firebase/database";
 
- function month(value) { // Obtengo los días de la semana en ingles
+ export function month(value) { // Obtengo los días del mes en ingles
   if (value === "Enero") {
     return "jan";
   } else if (value === "Febrero") {
@@ -43,7 +43,7 @@ function Days(props) {
   // const start = useSelector((state) => state.inicio);
   const dispatch = useDispatch();
   const [day, setDay] = useState("");
-
+  
   useEffect(() => {
     const starCountRef = ref(dataB, props.stateMonth + "/");
     
@@ -57,8 +57,9 @@ function Days(props) {
       setDay(newList);
       dispatch(fullArray(newList));
     });
-  }, [props.stateMonth, props.totalDays, dispatch]);
-
+    dispatch(participants(['', 0, props.stateMonth, 0, props.stateYear]))
+  }, [props.stateMonth, props.totalDays, props.stateYear, dispatch]);
+  
 
   const boton = (e) => {
     let obtenerMonth = month(props.stateMonth); // Obtengo los días de la semana en ingles para poder
@@ -90,7 +91,7 @@ function Days(props) {
 
 
     if (dayWeek === 1 || dayWeek === 2 || dayWeek === 4 || dayWeek === 6) {
-      dispatch(participants([returnDaySpanish(), e, props.stateMonth, dayWeek])); // Día en español - fecha - y el mes - #del día
+      dispatch(participants([returnDaySpanish(), e, props.stateMonth, dayWeek, props.stateYear])); // Día en español - fecha - y el mes - #del día
       }
 
   };

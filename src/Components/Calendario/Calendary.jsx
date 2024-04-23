@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Calendary.module.css";
 import Months from "./Months";
 
-let monthNames = [
+export let monthNames = [
   "Enero",
   "Febrero",
   "Marzo",

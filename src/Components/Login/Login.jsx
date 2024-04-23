@@ -64,7 +64,7 @@ function Login() {
       <form onSubmit={logIn} >
         <div className={style.group}>
           <label htmlFor="email" >Email</label>
-          <input id="email" type="email" name="email" autoComplete="true" onChange={emailValue} />
+          <input autoFocus id="email" type="email" name="email" autoComplete="true" onChange={emailValue} />
         </div>
 
         <div className={style.group}>

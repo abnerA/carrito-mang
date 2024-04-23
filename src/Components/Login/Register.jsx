@@ -68,12 +68,12 @@ function Register(props) {
       <form>
         <div className={style.group}>
           <label htmlFor="name">Nombre</label>
-          <input type="text" name="name" id="name" autoComplete="true" value={name} onChange={nombre} />
+          <input autoFocus autoCapitalize="sentences" type="text" name="name" id="name" autoComplete="true" value={name} onChange={nombre} />
         </div>
 
         <div className={style.group}>
           <label htmlFor="lastName" >Apellido</label>
-          <input type="text" name="lastName" id="lastName" value={lastName} onChange={apellido} />
+          <input autoCapitalize="sentences" type="text" name="lastName" id="lastName" value={lastName} onChange={apellido} />
         </div>
         
         <div className={style.group}>

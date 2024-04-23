@@ -45,17 +45,10 @@ function Shares() {
       for (let j = 0; j < obj.length; j++) {
         if (obj[i][j] === user) {
           savedArr.push(i + 1);
-          const anotacion1 = obj[i].findIndex((value) => {
-            return value === user; 
-          });
-          const anotacion2 = obj[i].findLastIndex((value) => {
-            return value === user;
-          });
-          if(anotacion1 <= 2) {
-            tarMan.push('Mañana')
-          } 
-          if (anotacion2 >= 3) {
-            tarMan.push('Tarde')
+          if (j < 3) {
+            tarMan.push('mañana');
+          } else {
+            tarMan.push('tarde');
           }
           counter++ // Cuenta el número de veces que estoy anotado
         }
@@ -63,7 +56,7 @@ function Shares() {
     }
     setCount(counter); 
     setSaved(savedArr);
-    setTurno(tarMan.slice(2, 7));
+    setTurno(tarMan);
   }, [obj, user, count]);
 
   return (

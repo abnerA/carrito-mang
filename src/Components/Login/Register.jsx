@@ -37,17 +37,17 @@ function Register(props) {
       const userCredencial = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(auth.currentUser, {
         displayName: fullName})
-      console.log(userCredencial)
+      console.log(userCredencial.user.emailVerified)
       // La siguiente function es para enviar correo de confirmación de su correo
       // sendEmail()
-      alert(`Ya estas registrado ${fullName}`);
+      // alert(`Ya estas registrado ${fullName}`);
         navigate('/successful-registration');
     }
     catch(e) {
       if (e.code === 'auth/invalid-email') {
         alert('Tú email no ha sido valido')
       } else if (e.code === 'auth/weak-password') {
-        alert('Tu contraseña es muy debil')
+        alert('Tu contraseña es muy debil. Debe tener al menos 6 caracteres')
       } else if (e.code === 'auth/email-already-in-use') {
         alert(`Este correo ya existe ${email}`)
       } else {

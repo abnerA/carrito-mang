@@ -86,7 +86,6 @@ function Days(props) {
 
     const arrName = day[e - 1];
 
-    // console.log(arrName);
     dispatch(fullDayArray(arrName));
 
 

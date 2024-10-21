@@ -16,7 +16,9 @@ function Participant() {
     <div className={style.container}>
       <div className={style.content}>
         <h4>{start.dayWords} {start.daySelect} de {start.monthCurrent}</h4>
-        <div style={{display: 
+        <div 
+          className={style.tomorrow} 
+          style={{display: 
           start.dayWeekNumber === 1 || start.dayWeekNumber === 4 || start.dayWeekNumber === 6 ? 'block' : 'none' }}>
           <p><strong>Lugar:</strong> {start.dayWeekNumber === 6 ? 'Av. La Cordillera' : 'Curce de Manoguayabo'}</p>
           <h5>{start.dayWeekNumber === 6 ? 'Turno de la mañana 8:00 a 11:00 AM.' : 'Turno de la mañana 7:00 a 10:00 AM.'}</h5>
@@ -33,7 +35,9 @@ function Participant() {
             action={'delete'} />
           <hr />
         </div>
-        <div style={{display: start.dayWeekNumber === 1 || start.dayWeekNumber === 2 ? 'block' : 'none' }} >
+        <div
+        className={style.evening} 
+        style={{display: start.dayWeekNumber === 1 || start.dayWeekNumber === 2 ? 'block' : 'none' }} >
           <h5>Turno de la tarde de 4:00 a 7:00 PM.</h5>
             <p>{!names ? '' : names[3]}</p>
             <p>{!names ? '' : names[4]}</p>

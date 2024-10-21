@@ -14,224 +14,224 @@ import style from "./Festivity.module.css";
 // Viernes santo Marzo/Abril
 // Corpus Christi Mayo/Junio
 
-const yearLast = {
-  Enero: {
-    1: "Año nuevo",
-    9: "Día de reyes",
-    21: "Día de la Altagracia",
-    30: "Día de Duarte",
-  }, // el día 26 de Enero se mueve para el 29
-  Febrero: { 27: "Día de la Independencia" },
-  Marzo: {},
-  Abril: { 7: "Viernes Santo" }, // Viernes Santo
-  Mayo: { 1: "Día del trabajo" }, // Día del trabajo
-  Junio: { 8: "Corpus Christi" }, // Corpus Christi
-  Julio: {},
-  Agosto: { 16: "Día de la Restauración" },
-  Septiembre: { 24: "Día de las Mercedes" },
-  Octubre: {},
-  Noviembre: { 6: "Día de la Constitución" }, // Día de la Constitución
-  Diciembre: { 25: "Día de Navidad" },
-};
+// const yearLast = {
+//   Enero: {
+//     1: "Año nuevo",
+//     9: "Día de reyes",
+//     21: "Día de la Altagracia",
+//     30: "Día de Duarte",
+//   }, // el día 26 de Enero se mueve para el 29
+//   Febrero: { 27: "Día de la Independencia" },
+//   Marzo: {},
+//   Abril: { 7: "Viernes Santo" }, // Viernes Santo
+//   Mayo: { 1: "Día del trabajo" }, // Día del trabajo
+//   Junio: { 8: "Corpus Christi" }, // Corpus Christi
+//   Julio: {},
+//   Agosto: { 16: "Día de la Restauración" },
+//   Septiembre: { 24: "Día de las Mercedes" },
+//   Octubre: {},
+//   Noviembre: { 6: "Día de la Constitución" }, // Día de la Constitución
+//   Diciembre: { 25: "Día de Navidad" },
+// };
 
-const yearCurrent = {
-  Enero: {
-    1: "Año nuevo",
-    6: "Día de reyes",
-    21: "Día de la Altagracia",
-    29: "Día de Duarte",
-  },
-  Febrero: { 27: "Día de la Independencia" },
-  Marzo: { 29: "Viernes Santo" },
-  Abril: { 29: "Día del trabajo" },
-  Mayo: { 30: "Corpus Christi" },
-  Junio: {},
-  Julio: {},
-  Agosto: { 16: "Día de la Restauración" },
-  Septiembre: { 24: "Día de las Mercedes" },
-  Octubre: {},
-  Noviembre: { 4: "Día de la Constitución" },
-  Diciembre: { 25: "Día de Navidad" },
-};
+// const yearCurrent = {
+//   Enero: {
+//     1: "Año nuevo",
+//     6: "Día de reyes",
+//     21: "Día de la Altagracia",
+//     29: "Día de Duarte",
+//   },
+//   Febrero: { 27: "Día de la Independencia" },
+//   Marzo: { 29: "Viernes Santo" },
+//   Abril: { 29: "Día del trabajo" },
+//   Mayo: { 30: "Corpus Christi" },
+//   Junio: {},
+//   Julio: {},
+//   Agosto: { 16: "Día de la Restauración" },
+//   Septiembre: { 24: "Día de las Mercedes" },
+//   Octubre: {},
+//   Noviembre: { 4: "Día de la Constitución" },
+//   Diciembre: { 25: "Día de Navidad" },
+// };
 
-const yearNext = {
-  Enero: {
-    1: "Año nuevo",
-    6: "Día de reyes",
-    21: "Día de la Altagracia",
-    26: "Día de Duarte",
-  },
-  Febrero: { 27: "Día de la Independencia" },
-  Marzo: {},
-  Abril: { 18: "Viernes Santo" },
-  Mayo: { 5: "Día del trabajo" },
-  Junio: { 19: "Corpus Christi" },
-  Julio: {},
-  Agosto: { 16: "Día de la Restauración" },
-  Septiembre: { 24: "Día de las Mercedes" },
-  Octubre: {},
-  Noviembre: { 10: "Día de la Constitución" },
-  Diciembre: { 25: "Día de Navidad" },
-};
+// const yearNext = {
+//   Enero: {
+//     1: "Año nuevo",
+//     6: "Día de reyes",
+//     21: "Día de la Altagracia",
+//     26: "Día de Duarte",
+//   },
+//   Febrero: { 27: "Día de la Independencia" },
+//   Marzo: {},
+//   Abril: { 18: "Viernes Santo" },
+//   Mayo: { 5: "Día del trabajo" },
+//   Junio: { 19: "Corpus Christi" },
+//   Julio: {},
+//   Agosto: { 16: "Día de la Restauración" },
+//   Septiembre: { 24: "Día de las Mercedes" },
+//   Octubre: {},
+//   Noviembre: { 10: "Día de la Constitución" },
+//   Diciembre: { 25: "Día de Navidad" },
+// };
 
 // Fechas con actividades teocrticas
-const activityLast = {
-  Enero: {},
-  Febrero: {},
-  Marzo: { 11: "Representante de la central mundial" },
-  Abril: {
-    1: "Discurso Especial",
-    4: "Conmemoración",
-    22: "Asamblea de Circuito",
-  },
-  Mayo: {
-    23: "Visita del Sup.",
-    24: "Visita del Sup.",
-    25: "Visita del Sup.",
-    26: "Visita del Sup.",
-    27: "Visita del Sup.",
-    28: "Visita del Sup.",
-  },
-  Junio: {},
-  Julio: {},
-  Agosto: {},
-  Septiembre: {
-    1: "Asamblea Regional",
-    2: "Asamblea Regional",
-    3: "Asamblea Regional",
-  },
-  Octubre: { 31: "Visita del Sup." },
-  Noviembre: {
-    1: "Visita del Sup.",
-    2: "Visita del Sup.",
-    3: "Visita del Sup.",
-    4: "Visita del Sup.",
-    5: "Visita del Sup.",
-    12: "Asamblea de Circuito",
-  },
-  Diciembre: {},
-};
+// const activityLast = {
+//   Enero: {},
+//   Febrero: {},
+//   Marzo: { 11: "Representante de la central mundial" },
+//   Abril: {
+//     1: "Discurso Especial",
+//     4: "Conmemoración",
+//     22: "Asamblea de Circuito",
+//   },
+//   Mayo: {
+//     23: "Visita del Sup.",
+//     24: "Visita del Sup.",
+//     25: "Visita del Sup.",
+//     26: "Visita del Sup.",
+//     27: "Visita del Sup.",
+//     28: "Visita del Sup.",
+//   },
+//   Junio: {},
+//   Julio: {},
+//   Agosto: {},
+//   Septiembre: {
+//     1: "Asamblea Regional",
+//     2: "Asamblea Regional",
+//     3: "Asamblea Regional",
+//   },
+//   Octubre: { 31: "Visita del Sup." },
+//   Noviembre: {
+//     1: "Visita del Sup.",
+//     2: "Visita del Sup.",
+//     3: "Visita del Sup.",
+//     4: "Visita del Sup.",
+//     5: "Visita del Sup.",
+//     12: "Asamblea de Circuito",
+//   },
+//   Diciembre: {},
+// };
 
-const activityCurrent = {
-  Enero: {},
-  Febrero: {},
-  Marzo: {
-    9: "Disc. Especial",
-    16: "Asamblea",
-    24: "Conmemoración",
-  },
-  Abril: {},
-  Mayo: {
-    28: "Visita del Sup.",
-    29: "Visita del Sup.",
-    30: "Visita del Sup.",
-    31: "Visita del Sup."
-  },
-  Junio: {
-    1: "Visita del Sup.",
-    2: "Visita del Sup."
-  },
-  Julio: {
-    22: "ESP",
-    23: "ESP",
-    24: "ESP",
-    25: "ESP",
-    26: "ESP",
-    27: "ESP"
-  },
-  Agosto: {
-    16: "Asamblea",
-    17: "Asamblea",
-    18: "Asamblea"
-  },
-  Septiembre: {},
-  Octubre: {},
-  Noviembre: {
-    24: "Asamblea"
-  },
-  Diciembre: {},
-};
+// const activityCurrent = {
+//   Enero: {},
+//   Febrero: {},
+//   Marzo: {
+//     9: "Disc. Especial",
+//     16: "Asamblea",
+//     24: "Conmemoración",
+//   },
+//   Abril: {},
+//   Mayo: {
+//     28: "Visita del Sup.",
+//     29: "Visita del Sup.",
+//     30: "Visita del Sup.",
+//     31: "Visita del Sup."
+//   },
+//   Junio: {
+//     1: "Visita del Sup.",
+//     2: "Visita del Sup."
+//   },
+//   Julio: {
+//     22: "ESP",
+//     23: "ESP",
+//     24: "ESP",
+//     25: "ESP",
+//     26: "ESP",
+//     27: "ESP"
+//   },
+//   Agosto: {
+//     16: "Asamblea",
+//     17: "Asamblea",
+//     18: "Asamblea"
+//   },
+//   Septiembre: {},
+//   Octubre: {},
+//   Noviembre: {
+//     24: "Asamblea"
+//   },
+//   Diciembre: {},
+// };
 
-const activityNext = {
-  Enero: {},
-  Febrero: {},
-  Marzo: {},
-  Abril: { 5: "Discurso Especial", 12: "Conmemoración" },
-  Mayo: {},
-  Junio: {},
-  Julio: {},
-  Agosto: {},
-  Septiembre: {},
-  Octubre: {},
-  Noviembre: {},
-  Diciembre: {},
-};
+// const activityNext = {
+//   Enero: {},
+//   Febrero: {},
+//   Marzo: {},
+//   Abril: { 5: "Discurso Especial", 12: "Conmemoración" },
+//   Mayo: {},
+//   Junio: {},
+//   Julio: {},
+//   Agosto: {},
+//   Septiembre: {},
+//   Octubre: {},
+//   Noviembre: {},
+//   Diciembre: {},
+// };
 
 function Festivity(props) {
   const backgroundColorToday =
     props.num === props.currentDay &&
     props.currentMonth === props.stateMonth &&
     props.currentYear === props.stateYear
-      ? "rgb(145, 190, 212)" // Azul oscuro
-      : (activityLast[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear - 1) ||
-        (activityCurrent[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear) ||
-        (activityNext[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear + 1)
-      ? "rgb(216, 80, 216)" // Color morado
-      : (yearLast[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear - 1) ||
-        (yearCurrent[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear) ||
-        (yearNext[props.stateMonth][props.num] &&
-          props.stateYear === props.currentYear + 1)
-      ? "rgb(235, 54, 54)" // Color Rojo
-      : "#d9e8f5"; // El color de fondo que tienen todos
+      ? "rgb(145, 190, 212)" : "#d9e8f5" // Azul oscuro
+      // : (activityLast[props.stateMonth][props.num] &&
+      //     props.stateYear === props.currentYear - 1) ||
+      //   (activityCurrent[props.stateMonth][props.num] &&
+      //     props.stateYear === props.currentYear) ||
+      //   (activityNext[props.stateMonth][props.num] &&
+      //     props.stateYear === props.currentYear + 1)
+      // ? "rgb(216, 80, 216)" // Color morado
+      // : (yearLast[props.stateMonth][props.num] &&
+      //     props.stateYear === props.currentYear - 1) ||
+      //   (yearCurrent[props.stateMonth][props.num] &&
+      //     props.stateYear === props.currentYear) ||
+      //   (yearNext[props.stateMonth][props.num] &&
+      //     props.stateYear === props.currentYear + 1)
+      // ? "rgb(235, 54, 54)" // Color Rojo
+      // : "#d9e8f5"; // El color de fondo que tienen todos
 
-  const titleToday =
-    props.stateYear === props.currentYear - 1
-      ? activityLast[props.stateMonth][props.num] ||
-        yearLast[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear
-      ? activityCurrent[props.stateMonth][props.num] ||
-        yearCurrent[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear + 1
-      ? activityNext[props.stateMonth][props.num] ||
-        yearNext[props.stateMonth][props.num]
-      : null;
+  // const titleToday =
+    // props.stateYear === props.currentYear - 1
+    //   ? activityLast[props.stateMonth][props.num] ||
+    //     yearLast[props.stateMonth][props.num]
+    //   : props.stateYear === props.currentYear
+    //   ? activityCurrent[props.stateMonth][props.num] ||
+    //     yearCurrent[props.stateMonth][props.num]
+    //   : props.stateYear === props.currentYear + 1
+    //   ? activityNext[props.stateMonth][props.num] ||
+    //     yearNext[props.stateMonth][props.num]
+    //   : null;
 
-  const titleFestivity =
-    props.stateYear === props.currentYear - 1
-      ? yearLast[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear 
-      ? yearCurrent[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear + 1
-      ? yearNext[props.stateMonth][props.num]
-      : null;
+  // const titleFestivity =
+  //   props.stateYear === props.currentYear - 1
+  //     ? yearLast[props.stateMonth][props.num]
+  //     : props.stateYear === props.currentYear 
+  //     ? yearCurrent[props.stateMonth][props.num]
+  //     : props.stateYear === props.currentYear + 1
+  //     ? yearNext[props.stateMonth][props.num]
+  //     : null;
 
-  const titleActivity =
-    props.stateYear === props.currentYear - 1
-      ? activityLast[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear
-      ? activityCurrent[props.stateMonth][props.num]
-      : props.stateYear === props.currentYear + 1
-      ? activityNext[props.stateMonth][props.num]
-      : null;
+  // const titleActivity =
+  //   props.stateYear === props.currentYear - 1
+  //     ? activityLast[props.stateMonth][props.num]
+  //     : props.stateYear === props.currentYear
+  //     ? activityCurrent[props.stateMonth][props.num]
+  //     : props.stateYear === props.currentYear + 1
+  //     ? activityNext[props.stateMonth][props.num]
+  //     : null;
 
   return (
     <>
       <h2
-        title={titleToday}
+        // title={titleToday}
         aria-label={`Día ${props.num}`}
         className={style.dayNum}
         style={{ backgroundColor: backgroundColorToday }}
       >
         {props.num}
       </h2>
-      <h6 className={style.titleActivity} style={{height: titleActivity === undefined ? "0px" : "10px"}} >{titleActivity}</h6>
+      {/* <h6 className={style.titleActivity} style={{height: titleActivity === undefined ? "0px" : "10px"}} >{titleActivity}</h6>
       <h6 className={style.titleFestivity} style={{height: titleFestivity === undefined ? "0px" : "10px" }} >
-        {titleFestivity === undefined ? "" : "Día feriado"}</h6>
+        {titleFestivity === undefined ? "" : "Día feriado"}</h6> */}
     </>
   );
 }

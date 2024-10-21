@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import style from "./Participant.module.css";
+import style from "./Shares.module.css";
 import { useSelector } from "react-redux";
 import { month } from "../Calendario/Days";
 
@@ -60,12 +60,14 @@ function Shares() {
   }, [obj, user, count]);
 
   return (
-    <div className={style.shares}>
-      <h4>Mis participaciones del mes:</h4>
-      <div className={style.participant}>
+    <div className={style.container}>
+      <div className={style.shares}>
+        <h4>Mis participaciones del mes:</h4>
+        <div className={style.participant}>
           {!saved ? "loadding" : saved.map((value, index) => {
                 return <h5 key={index}>{`${obtenerDay(value)} ${value} ${turno[index]}`}</h5>})
           }
+        </div>
       </div>
     </div>
   );

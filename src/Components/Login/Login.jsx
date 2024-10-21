@@ -88,8 +88,6 @@ function Login() {
             <p>¿Necesitas una cuenta?</p>
             <button type="button" className={style.btn} onClick={register}>Crear una cuenta</button>
         </div>
-
-
     </div>
   );
 }

@@ -45,6 +45,7 @@ input:focus {
     border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
+    transition: 600ms;
 }
 
 .btn:hover {
@@ -97,11 +98,13 @@ input:focus {
 }
 
 .registro .btn {
-    background-color: #dddddd;
+    background-color: #afafaf;
     width: 150px;
+    transition: 600ms;
 }
 
 .registro .btn:hover {
     background-color: #aaa9a9;
     color: black;
+    transition: 600ms;
 }

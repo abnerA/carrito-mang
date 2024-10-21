@@ -41,7 +41,7 @@ export const createAccount = async (email, password) => {
 export const sendEmail = async () => {
   sendEmailVerification(auth.currentUser)
   .then(() => {
-    console.log('Email enviado');
+    // console.log('Email enviado');
   })
 }
 

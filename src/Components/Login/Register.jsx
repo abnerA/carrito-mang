@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Style.module.css";
 import { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
-// import { sendEmail } from "../../firebase/firebase";
+import { sendEmail } from "../../firebase/firebase";
 import { auth } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 
@@ -39,7 +39,7 @@ function Register(props) {
         displayName: fullName})
       console.log(userCredencial.user.emailVerified)
       // La siguiente function es para enviar correo de confirmación de su correo
-      // sendEmail()
+      sendEmail()
       // alert(`Ya estas registrado ${fullName}`);
         navigate('/successful-registration');
     }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Style.module.css";
 import { auth } from "../../firebase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -9,7 +9,15 @@ function Login() {
   const [password, setPassword] = useState();
   const navigate = useNavigate(); // navigate para cambiar de ruta una vez inicida la sesión 
 
-  const [estilo, setEstilo] = useState({display: 'none', message: ''})
+  const [estilo, setEstilo] = useState({display: 'none', message: ''});
+  const [num, setNum] = useState();
+
+  useEffect(() => {
+    const getRandom = (max) => {
+      return Math.floor(Math.random() * (max + 1) + 1)
+    }
+    setNum(getRandom(11));    
+  },[])
 
   const emailValue = (e) => {
     setEmail(e.target.value);
@@ -58,8 +66,10 @@ function Login() {
     navigate('/register');
   }
 
+
   return (
     <div className={style.container}>
+      <div className={style.img} style={{backgroundImage: `url(./img/Imagen${num}.jpg)`}}></div>
       <h2 className={style.title}>Acceso</h2>
       <form onSubmit={logIn} >
         <div className={style.group}>

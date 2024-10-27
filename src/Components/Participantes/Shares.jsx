@@ -65,7 +65,7 @@ function Shares() {
         <h4>Mis participaciones del mes:</h4>
         <div className={style.participant}>
           {!saved ? "loadding" : saved.map((value, index) => {
-                return <h5 key={index}>{`${obtenerDay(value)} ${value} ${turno[index]}`}</h5>})
+                return <h5 className={style.date} key={index}>{`${obtenerDay(value)} ${value} ${turno[index]}`}</h5>})
           }
         </div>
       </div>

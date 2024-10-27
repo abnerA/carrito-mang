@@ -1,5 +1,6 @@
 import { addparticipation } from "../../firebase/firebase";
 import { useSelector } from "react-redux";
+import style from "./ButtonParticipant.module.css"
 
 function ButtonParticipant(props) {
   const start = useSelector((state) => state.inicio);
@@ -45,7 +46,9 @@ if (props.section === 'morning' && props.action === 'added' && !objCopy.slice(0,
 
   return (
     <>
-      <button onClick={handleClick}>{props.title}</button>
+      <button 
+      style={{background: props.title === 'Quitarme' ? '#f44336' : 'white'}}
+      className={style.btn} onClick={handleClick}>{props.title}</button>
     </>
   );
 }

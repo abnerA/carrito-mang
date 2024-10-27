@@ -33,7 +33,7 @@ useEffect(() => {
 const handleClick = async () => {
   await signOut(auth);
   navigate('/');
-  console.log('saliste');
+  // console.log('saliste');
 }
 
   return (

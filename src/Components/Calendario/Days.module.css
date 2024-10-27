@@ -9,15 +9,15 @@
     min-width: 35px;
     /* margin: 1px; */
     height: 35px;
-    background-color: #d9e8f5;
+    background-color: white;
     overflow: scroll;
     border-radius: 3px;
-    border: solid 1px hsl(0, 0%, 50%);
+    border: solid 1px rgb(100, 98, 236);
     margin: 1px;
 }
 
 .days:hover {
-    background-color: green;
+    background-color: rgb(100, 98, 236);
     opacity: 0.8;
     transition: 300ms;
 }

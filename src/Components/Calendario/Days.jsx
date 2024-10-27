@@ -43,6 +43,8 @@ function Days(props) {
   // const start = useSelector((state) => state.inicio);
   const dispatch = useDispatch();
   const [day, setDay] = useState("");
+  // console.log(props.currentDay);
+  
   
   useEffect(() => {
     const starCountRef = ref(dataB, props.stateMonth + "/");
@@ -57,7 +59,9 @@ function Days(props) {
       setDay(newList);
       dispatch(fullArray(newList));
     });
-    dispatch(participants(['', 0, props.stateMonth, 0, props.stateYear]))
+    dispatch(participants(['', props.currentDay, props.stateMonth, 0, props.stateYear]))
+    boton(props.currentDay)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.stateMonth, props.totalDays, props.stateYear, dispatch]);
   
 

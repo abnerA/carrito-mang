@@ -8,6 +8,17 @@
     align-items: center;
 }
 
+.img {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    /* margin-top: -150px; */
+    margin-bottom: 20px;
+}
+
 form {
     width: 100%;
     display: flex;
@@ -38,8 +49,8 @@ input:focus {
 .btn {
     margin-top: 10px;
     border: none;
-    color: white;
-    background-color: rgb(100, 98, 236);
+    color: #ffffff;
+    background-color: #6462ec;
     width: 120px;
     height: 30px;
     border-radius: 4px;

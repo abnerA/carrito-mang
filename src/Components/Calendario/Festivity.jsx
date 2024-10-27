@@ -172,7 +172,7 @@ function Festivity(props) {
     props.num === props.currentDay &&
     props.currentMonth === props.stateMonth &&
     props.currentYear === props.stateYear
-      ? "rgb(145, 190, 212)" : "#d9e8f5" // Azul oscuro
+      ? "#64B8ED" : "white" // Azul oscuro
       // : (activityLast[props.stateMonth][props.num] &&
       //     props.stateYear === props.currentYear - 1) ||
       //   (activityCurrent[props.stateMonth][props.num] &&

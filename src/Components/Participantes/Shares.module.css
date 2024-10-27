@@ -3,12 +3,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px;
 }
 
 .shares {
-    background-color: grey;
-    width: 90%;
-    height: 200px;
+    border: solid 2px #6462ec;
+    width: 80%;
+    height: 130px;
     border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.date {
+    text-align: left;
+    padding-left: 8px;
 }

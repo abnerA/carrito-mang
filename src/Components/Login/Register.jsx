@@ -37,7 +37,7 @@ function Register(props) {
       const userCredencial = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(auth.currentUser, {
         displayName: fullName})
-      console.log(userCredencial.user.emailVerified)
+      console.log(userCredencial.user.emailVerified) // Para saber si el usario ha confirmado su correo
       // La siguiente function es para enviar correo de confirmación de su correo
       sendEmail()
       // alert(`Ya estas registrado ${fullName}`);

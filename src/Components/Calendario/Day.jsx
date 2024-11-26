@@ -2,6 +2,8 @@ import style from "./Day.module.css";
 import Festivity from "./Festivity";
 
 function Day(props) {
+  // console.log(props.stateMonth);
+  
   return (
     <div className={style.container}>
       <div className={style.festivity}>
@@ -12,6 +14,7 @@ function Day(props) {
           currentYear={props.currentYear}
           currentDay={props.currentDay}
           num={props.num}
+          // key={props.stateMonth}
         />
       </div>
     </div>

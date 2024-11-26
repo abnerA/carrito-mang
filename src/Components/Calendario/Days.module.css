@@ -1,8 +1,19 @@
+.container {
+    width: 100%;
+    /* background-color: grey; */
+    display: flex;
+    flex-direction: column;
+}
+
 .containerDays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    /* gap: 1px; */
-    
+}
+
+.participant {
+    width: 100%;
+    margin-top: 60px;
+    /* background-color: green; */
 }
 
 .days {

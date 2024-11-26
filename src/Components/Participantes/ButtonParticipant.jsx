@@ -7,7 +7,7 @@ function ButtonParticipant(props) {
   let dayNum = "day" + start.daySelect;
   let month = start.monthCurrent + "/";
   let user = start.userLogin;
-  let daySelect = start.daySelect
+  let daySelect = start.daySelect;
   let arrName = start.fullMonthArray[daySelect -1];
   // console.log(arrName);
 
@@ -18,7 +18,8 @@ if (props.section === 'morning' && props.action === 'added' && !objCopy.slice(0,
       let arrIndex = arrName.indexOf('');
       objCopy[arrIndex] = user;
       addparticipation(dayNum, objCopy, `${month}/`);
-      // console.log('ya estás anotado en la mañana');
+      
+      // console.log('anotado');
     } else if (props.section === 'morning' && props.action === 'delete' && objCopy.slice(0, 3).includes(user)) {
       let arrIndex = arrName.indexOf(user);
       objCopy[arrIndex] = '';

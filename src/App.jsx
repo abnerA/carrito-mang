@@ -5,16 +5,15 @@ import Participant from "./Components/Participantes/Participant";
 import Shares from "./Components/Participantes/Shares";
 // import PageHome from "./Components/PageHome/PageHome";
 
-
-function App() {
+function App() {   
     return (
         <div className={style.container}>
             <div className={style.main}>
                 {/* <PageHome /> */}
                 <Header />
                 <Calendary />
-                <Participant />
-                <Shares />
+                {/* <Participant /> */}
+                {/* <Shares /> */}
             </div>
         </div>
     );

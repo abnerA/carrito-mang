@@ -3,15 +3,18 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import ButtonParticipant from "./ButtonParticipant";
 
-function Participant() {
+function Participant(props) {
   const start = useSelector((state) => state.inicio);
   const [names, setNames] = useState('');
-  // console.log(start.daySelect);
-  
 
+  
   useEffect(() => {
-    setNames(start.fullMonthArray[start.daySelect - 1])
-  }, [start.daySelect, start.fullMonthArray]);
+    setNames(props.dias[start.daySelect - 1])
+  },[props.dias, start.daySelect]);
+
+  // useEffect(() => {
+  //   setNames(start.fullMonthArray[start.daySelect - 1])
+  // }, [start.daySelect, start.fullMonthArray, start.monthCurrent]);
 
  
   return (

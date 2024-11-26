@@ -33,6 +33,7 @@ class Calendary extends React.Component {
     this.startDay = this.startDay.bind(this);
   }
 
+  
   // Function para saber cual es el primer día del mes
   startDay() {
     let start = new Date(this.state.año, this.state.mes, 1);

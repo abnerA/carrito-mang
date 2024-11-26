@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "./Days.module.css";
 import Day from "./Day";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   fullArray,
   participants,
@@ -9,6 +9,7 @@ import {
 } from "../../Redux/features/IniciarSesion";
 import { dataB } from "../../firebase/firebase";
 import { ref, onValue } from "firebase/database";
+import Participant from "../Participantes/Participant";
 
  export function month(value) { // Obtengo los días del mes en ingles
   if (value === "Enero") {
@@ -40,24 +41,28 @@ import { ref, onValue } from "firebase/database";
 
 
 function Days(props) {
-  // const start = useSelector((state) => state.inicio);
+  const start = useSelector((state) => state.inicio);
   const dispatch = useDispatch();
   const [day, setDay] = useState("");
-  // console.log(props.currentDay);
   
-  
+
   useEffect(() => {
     const starCountRef = ref(dataB, props.stateMonth + "/");
     
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
+      
+      
       let newList = [];
       for (let i = 1; i < props.totalDays + 1; i++) {
         let numDias = "day" + i;
+        
         newList.push(data[numDias].name);
+        // console.log(newList);
+        
       }
       setDay(newList);
-      dispatch(fullArray(newList));
+      dispatch(fullArray(newList));      
     });
     dispatch(participants(['', props.currentDay, props.stateMonth, 0, props.stateYear]))
     boton(props.currentDay)
@@ -100,31 +105,39 @@ function Days(props) {
   };
 
   return (
-    <div className={style.containerDays}>
-      {(function () {
-        let persons = [];
-        for (let i = 1; i < props.totalDays + 1; i++) {
-          persons.push(
-            <div
-              key={i}
-              className={style.days}
-              onClick={() => boton(i)}
-              style={{gridColumnStart: i === 1 && props.firstDay === 0 ? 7 : i === 1 && props.firstDay}}>
-              <Day
-                num={i}
-                currentDay={props.currentDay}
-                currentMonth={props.currentMonth}
-                stateMonth={props.stateMonth}
-                stateYear={props.stateYear}
-                currentYear={props.currentYear}
-                names={day[i - 1]}
-                key={props.stateMonth}
-              />
-            </div>
-          );
-        }
-        return persons;
-      })()}
+    <div className={style.container}>
+      <div className={style.containerDays}>
+        {(function () {
+          let persons = [];
+          for (let i = 1; i < props.totalDays + 1; i++) {
+            persons.push(
+              <div
+                key={i}
+                className={style.days}
+                onClick={() => boton(i)}
+                style={{gridColumnStart: i === 1 && props.firstDay === 0 ? 7 : i === 1 && props.firstDay}}>
+                <Day
+                  num={i}
+                  currentDay={props.currentDay}
+                  currentMonth={props.currentMonth}
+                  stateMonth={props.stateMonth}
+                  stateYear={props.stateYear}
+                  currentYear={props.currentYear}
+                  names={day[i - 1]}
+                  key={props.stateMonth}
+                />
+              </div>
+            );
+          }
+          return persons;
+        })()}
+    </div>
+    
+      <div className={style.participant}>
+        <Participant
+        dias={day}
+        key={props.stateMonth} />
+      </div>
     </div>
   );
 }

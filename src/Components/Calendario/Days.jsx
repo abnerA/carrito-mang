@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import style from "./Days.module.css";
 import Day from "./Day";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   fullArray,
   participants,
@@ -41,10 +41,9 @@ import Participant from "../Participantes/Participant";
 
 
 function Days(props) {
-  const start = useSelector((state) => state.inicio);
+  // const start = useSelector((state) => state.inicio);
   const dispatch = useDispatch();
   const [day, setDay] = useState("");
-  
 
   useEffect(() => {
     const starCountRef = ref(dataB, props.stateMonth + "/");

@@ -1,7 +1,7 @@
 import style from "./App.module.css";
 import Calendary from "./Components/Calendario/Calendary";
 import { Header } from "./Components/Header/Header";
-import Participant from "./Components/Participantes/Participant";
+// import Participant from "./Components/Participantes/Participant";
 import Shares from "./Components/Participantes/Shares";
 // import PageHome from "./Components/PageHome/PageHome";
 
@@ -13,7 +13,7 @@ function App() {
                 <Header />
                 <Calendary />
                 {/* <Participant /> */}
-                {/* <Shares /> */}
+                <Shares />
             </div>
         </div>
     );

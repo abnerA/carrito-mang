@@ -28,9 +28,9 @@ function Participant(props) {
               start.dayWeekNumber === 1 || start.dayWeekNumber === 4 || start.dayWeekNumber === 6 ? 'flex' : 'none' }}>
                 <p className={style.lugar}><strong>Lugar:</strong> {start.dayWeekNumber === 6 ? 'Av. La Cordillera' : 'Cruce de Manoguayabo'}</p>
                 <h5>{start.dayWeekNumber === 6 ? 'Mañana: 8:00 a 11:00 AM.' : 'Mañana: 7:00 a 10:00 AM.'}</h5>
-              <p>• {!names ? '' : names[0]}</p> 
-              <p>• {!names ? '' : names[1]}</p>
-              <p>• {!names ? '' : names[2]}</p>
+              <p className={style.nombre}>• {!names ? '' : names[0]}</p> 
+              <p className={style.nombre}>• {!names ? '' : names[1]}</p>
+              <p className={style.nombre}>• {!names ? '' : names[2]}</p>
 
               {/* Nombres de prueba
               <p>• Stephanie Pichardo</p>
@@ -52,9 +52,9 @@ function Participant(props) {
           style={{display: start.dayWeekNumber === 1 || start.dayWeekNumber === 4 || start.dayWeekNumber === 2 ? 'flex' : 'none' }} >
                 <p className={style.lugar}><strong>Lugar:</strong> {start.dayWeekNumber === 6 ? 'Av. La Cordillera' : 'Cruce de Manoguayabo'}</p>
             <h5>Tarde: 4:00 a 7:00 PM.</h5>
-              <p>• {!names ? '' : names[3]}</p>
-              <p>• {!names ? '' : names[4]}</p>
-              <p>• {!names ? '' : names[5]}</p>
+              <p className={style.nombre}>• {!names ? '' : names[3]}</p>
+              <p className={style.nombre}>• {!names ? '' : names[4]}</p>
+              <p className={style.nombre}>• {!names ? '' : names[5]}</p>
 
               {/* Nombres de prueba */}
               {/* <p>• Stephanie Pichardo</p>

@@ -17,7 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-// connectAuthEmulator(auth, "http://localhost:9099");
+
 
 // Para acceder a la DB de Firestore Database
 export const db = getFirestore(app);
@@ -57,12 +57,24 @@ export function addName(userId, name, month) {
 
 // Con está function guardamos las fechas en que vamos a participar
 export function addparticipation(userId, name, month) {
+ const user = auth.currentUser;
+ 
+if (user.uid !== null) {
   const db = getDatabase();
   const reference = ref(db, month + userId);
 
   set(reference, {
     name: name,
+  })
+  .then(() => {
+    console.log();
+  })
+  .catch((error) => {
+    console.log('Error al guardar datos:', error);
   });
+} else {
+  console.log('No hay usuario autenticado');
+}
 }
 
 // const starCountRef = ref(dataB, 'Enero/');
@@ -134,3 +146,4 @@ export function addparticipation(userId, name, month) {
 
 // addMeses("Abril/");
 // addNombre("Abner Estévez")
+

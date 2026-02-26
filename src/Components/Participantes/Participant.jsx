@@ -26,7 +26,7 @@ function Participant(props) {
             className={style.tomorrow} 
             style={{display: 
               start.dayWeekNumber === 1 || start.dayWeekNumber === 4 || start.dayWeekNumber === 6 ? 'flex' : 'none' }}>
-                <p className={style.lugar}><strong>Lugar:</strong> {start.dayWeekNumber === 6 ? 'Av. Cordillera' : 'Av. Cordillera'}</p>
+                <p className={style.lugar}><strong>Lugar:</strong> {start.dayWeekNumber === 6 ? 'Av. Cordillera' : 'Cruce de Manoguayabo'}</p>
                 <h5>{start.dayWeekNumber === 6 ? 'Mañana: 8:00 a 11:00 AM.' : 'Mañana: 7:00 a 10:00 AM.'}</h5>
               <p className={style.nombre}>• {!names ? '' : names[0]}</p> 
               <p className={style.nombre}>• {!names ? '' : names[1]}</p>
@@ -50,7 +50,7 @@ function Participant(props) {
           <div
           className={style.evening} 
           style={{display: start.dayWeekNumber === 1 || start.dayWeekNumber === 4 || start.dayWeekNumber === 2 ? 'flex' : 'none' }} >
-                <p className={style.lugar}><strong>Lugar:</strong> {start.dayWeekNumber === 6 ? 'Av. Cordillera' : 'Av. Cordillera'}</p>
+                <p className={style.lugar}><strong>Lugar:</strong> {start.dayWeekNumber === 6 ? 'Av. Cordillera' : 'Cruce de Manoguayabo'}</p>
             <h5>Tarde: 4:00 a 7:00 PM.</h5>
               <p className={style.nombre}>• {!names ? '' : names[3]}</p>
               <p className={style.nombre}>• {!names ? '' : names[4]}</p>
